@@ -37,7 +37,17 @@ var self_clone : Executor
 var initialized = false
 
 
+func provide_callback(callback : Callable):
+	var children = get_children()
+	for child in children:
+		if child is Callback:
+			child.function = callback
+
+	
+
 func initialize_by_parent():
+	if get_parent() == null :
+		pass
 	
 	auto_init = false
 	#if this is invalid, any nodes which affect a node will fail to verify.

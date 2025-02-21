@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://muys6dk2o42v"]
+
+[ext_resource type="Script" uid="uid://boe6wblo1gm1k" path="res://menu_functions.gd" id="1_lti8b"]
+
+[node name="MenuRoot" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 656.0
+script = ExtResource("1_lti8b")
+
+[node name="Level0" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 84.0
+offset_right = 370.0
+offset_bottom = 232.0
+text = "Level 0"
+
+[node name="Level1" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 88.0
+offset_right = 710.0
+offset_bottom = 236.0
+text = "Level 1"
+
+[connection signal="pressed" from="Control/Level0" to="Control" method="_on_level_0_pressed"]
+[connection signal="pressed" from="Control/Level1" to="Control" method="_on_level_2_pressed"]

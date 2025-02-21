@@ -1,39 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://ciwg32p5fu0jx"]
 
-[ext_resource type="Texture2D" uid="uid://0q4s3fxiwybl" path="res://icon.svg" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://b8nfsqd2437n2" path="res://Base Objects/input_processor.gd" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://banc2f1p3qdjs" path="res://Base Objects/input_processor.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://cjnkgonktgaqj" path="res://Base Objects/global_executor_list.gd" id="1_lquwl"]
-[ext_resource type="Script" uid="uid://83efxkrmm2vo" path="res://Executors/exec_mouse_clicked.gd" id="3_lquwl"]
-[ext_resource type="Script" uid="uid://dsoda6ul1nivq" path="res://Actions/translate_to_mouse.gd" id="7_5vw27"]
+[ext_resource type="Script" uid="uid://n12cdne363o8" path="res://Base Objects/level_loader.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://02sp4dui6nn5" path="res://test_1.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://jhut24mrg7iw" path="res://test_2.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://muys6dk2o42v" path="res://menu.tscn" id="6_7mycd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
-size = Vector2(117, 118)
-
-[node name="GlobalExecutorList" type="Node2D"]
-script = ExtResource("1_lquwl")
+[node name="Root" type="Node2D"]
 
 [node name="InputProcessor" type="Node" parent="."]
 script = ExtResource("1_1bvp3")
-metadata/_custom_type_script = "uid://b8nfsqd2437n2"
+metadata/_custom_type_script = "uid://banc2f1p3qdjs"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(702, 490)
-texture = ExtResource("1_0xm2m")
+[node name="GlobalExecutorList" type="Node" parent="."]
+script = ExtResource("1_lquwl")
+metadata/_custom_type_script = "uid://cjnkgonktgaqj"
 
-[node name="ExecMouseClicked" type="Node" parent="Sprite2D"]
-script = ExtResource("3_lquwl")
-loops = true
-resettable = true
-metadata/_custom_type_script = "uid://83efxkrmm2vo"
-
-[node name="TranslateToMouse" type="Node" parent="Sprite2D/ExecMouseClicked"]
-script = ExtResource("7_5vw27")
-duration = 1.0
-metadata/_custom_type_script = "uid://dsoda6ul1nivq"
-
-[node name="Area2D" type="Area2D" parent="Sprite2D"]
-position = Vector2(-702, -482)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(-4, -5)
-shape = SubResource("RectangleShape2D_kek77")
+[node name="LevelLoader" type="Node" parent="."]
+script = ExtResource("3_h2yge")
+level_scenes = Array[PackedScene]([ExtResource("4_lquwl"), ExtResource("5_7mycd")])
+main_menu = ExtResource("6_7mycd")
+metadata/_custom_type_script = "uid://n12cdne363o8"

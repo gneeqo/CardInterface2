@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjy84h3dbdkga"]
+
+[ext_resource type="Script" uid="uid://b4lvd7lh6bymw" path="res://Executors/exec_auto_activate.gd" id="1_1b4g7"]
+[ext_resource type="Script" uid="uid://cj258kueu8ura" path="res://Actions/Translate.gd" id="2_o5c3f"]
+[ext_resource type="Script" uid="uid://bemgi0ogghif3" path="res://Actions/destroy.gd" id="3_c7yc0"]
+[ext_resource type="Script" uid="uid://drluoba4f6b71" path="res://Actions/callback.gd" id="4_o5c3f"]
+
+[node name="TranslateOut" type="Node"]
+script = ExtResource("1_1b4g7")
+metadata/_custom_type_script = "uid://b4lvd7lh6bymw"
+
+[node name="Translate" type="Node" parent="."]
+script = ExtResource("2_o5c3f")
+target = Vector2(100, -2500)
+duration = 2.0
+blocking = true
+eased = true
+metadata/_custom_type_script = "uid://cj258kueu8ura"
+
+[node name="Destroy" type="Node" parent="."]
+script = ExtResource("3_c7yc0")
+duration = 0.1
+metadata/_custom_type_script = "uid://bemgi0ogghif3"
+
+[node name="Callback" type="Node" parent="."]
+script = ExtResource("4_o5c3f")
+duration = 0.1
+metadata/_custom_type_script = "uid://drluoba4f6b71"
