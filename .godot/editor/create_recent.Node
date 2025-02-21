@@ -1,0 +1,15 @@
+CallbackAfter
+TranslateToMouse
+ExecCollide
+CollisionShape2D
+Area2D
+Sprite2D
+TranslateToAnchor
+ExecMouseClicked
+ExecMouseHeld
+Rotate
+Translate
+InputProcessor
+ExecAutoActivate
+Control
+Node

@@ -1,0 +1,27 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1740097654
+icon.svg::CompressedTexture2D/CompressedTexture2D::1789545551530705629::1739581842::1739581851::1::::<><><>0<>0<>3cee6d668a13b935da0a3968bd21b0a1<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+main.tscn::PackedScene/PackedScene::5380184173938791965::1740097130::0::1::::<><><>0<>0<><>::uid://0q4s3fxiwybl::::res://icon.svg<>uid://b8nfsqd2437n2::::res://Base Objects/input_processor.gd<>uid://cjnkgonktgaqj::::res://Base Objects/global_executor_list.gd<>uid://83efxkrmm2vo::::res://Executors/exec_mouse_clicked.gd<>uid://dsoda6ul1nivq::::res://Actions/translate_to_mouse.gd
+::res://Actions/::1740097576
+callback_after.gd::GDScript/GDScript::5441208841942622398::1740096760::0::1::::CallbackAfter<>Action<><>0<>0<><>::
+callback_during.gd::GDScript/GDScript::2241350161953520070::1740096760::0::1::::CallbackDuring<>Action<><>0<>0<><>::
+rotate.gd::GDScript/GDScript::3286577372221657927::1739759506::0::1::::Rotate<>Action<><>0<>0<><>::
+scale.gd::GDScript/GDScript::71311240331756874::1740097048::0::1::::Scale<>Action<><>0<>0<><>::
+Translate.gd::GDScript/GDScript::5462160156809341914::1739759425::0::1::::Translate<>Action<><>0<>0<><>::
+translate_to_anchor.gd::GDScript/GDScript::2507631428395841350::1740095299::0::1::::TranslateToAnchor<>Action<><>0<>0<><>::
+translate_to_mouse.gd::GDScript/GDScript::8451746335754020450::1739760192::0::1::::TranslateToMouse<>Action<><>0<>0<><>::
+::res://Base Objects/::1740097576
+action.gd::GDScript/GDScript::7855457209509461795::1740097130::0::1::::Action<>Node<><>0<>0<><>::
+action.tscn::PackedScene/PackedScene::5767057643731828169::1740097130::0::1::::<><><>0<>0<><>::uid://dj6ih5254m6st::::res://Base Objects/action.gd
+action_list.gd::GDScript/GDScript::4910779005122659407::1739756290::0::1::::ActionList<>Node<><>0<>0<><>::
+action_list.tscn::PackedScene/PackedScene::4003629409258847948::1740097130::0::1::::<><><>0<>0<><>::uid://cb722vr7q1rwp::::res://Base Objects/action_list.gd
+executor.gd::GDScript/GDScript::6029659025302484580::1740089698::0::1::::Executor<>Node<><>0<>0<><>::
+executor.tscn::PackedScene/PackedScene::8214243374332468340::1740097130::0::1::::<><><>0<>0<><>::uid://cr52urkjin0hk::::res://Base Objects/executor.gd
+global_executor_list.gd::GDScript/GDScript::5431996511511705097::1740089275::0::1::::GlobalExecutorList<>Node<><>0<>0<><>::
+input_processor.gd::GDScript/GDScript::4729826010079730981::1739760388::0::1::::InputProcessor<>Node<><>0<>0<><>::
+::res://Executors/::1740097576
+exec_auto_activate.gd::GDScript/GDScript::4445887416820103206::1739756290::0::1::::ExecAutoActivate<>Executor<><>0<>0<><>::
+exec_mouse_clicked.gd::GDScript/GDScript::2374287438383372036::1740094816::0::1::::ExecMouseClicked<>Executor<><>0<>0<><>::
+exec_mouse_held.gd::GDScript/GDScript::3366521492011074992::1739760638::0::1::::ExecMouseHeld<>Executor<><>0<>0<><>::
+exec_on_collide.gd::GDScript/GDScript::669613231666669316::1740096150::0::1::::ExecCollide<>Executor<><>0<>0<><>::
+::res://Lists/::1739582325

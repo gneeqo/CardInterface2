@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciwg32p5fu0jx"]
+
+[ext_resource type="Texture2D" uid="uid://0q4s3fxiwybl" path="res://icon.svg" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://b8nfsqd2437n2" path="res://Base Objects/input_processor.gd" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://83efxkrmm2vo" path="res://Executors/exec_mouse_clicked.gd" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://dsoda6ul1nivq" path="res://Actions/translate_to_mouse.gd" id="4_1bvp3"]
+
+[node name="Main" type="Node2D"]
+
+[node name="InputProcessor" type="Node" parent="."]
+script = ExtResource("1_1bvp3")
+metadata/_custom_type_script = ExtResource("1_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(702, 490)
+texture = ExtResource("1_0xm2m")
+
+[node name="ExecMouseClicked" type="Node" parent="Sprite2D"]
+script = ExtResource("3_lquwl")
+loops = true
+metadata/_custom_type_script = ExtResource("3_lquwl")
+
+[node name="TranslateToMouse" type="Node" parent="Sprite2D/ExecMouseClicked"]
+script = ExtResource("4_1bvp3")
+duration = 1.0
+metadata/_custom_type_script = ExtResource("4_1bvp3")
