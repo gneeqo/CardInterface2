@@ -1,12 +1,12 @@
 class_name AutomatedButton extends Button
 
-signal self_activated
+signal self_pressed
 
 func _ready():
 	add_to_group("auto_clickable",true)
 
 func _on_pressed() -> void:
-	self_activated.emit()
+	self_pressed.emit()
 	
-func automated_activation():
-	self_activated.emit()
+func auto_press():
+	self_pressed.emit()

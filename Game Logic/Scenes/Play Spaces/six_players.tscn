@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2awiqacmo8ob"]
+
+[ext_resource type="Texture2D" uid="uid://0q4s3fxiwybl" path="res://icon.svg" id="1_jon3l"]
+
+[node name="TwoPlayers" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(345, 83)
+texture = ExtResource("1_jon3l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(841, 578)
+texture = ExtResource("1_jon3l")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1085, 318)
+texture = ExtResource("1_jon3l")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(70, 323)
+texture = ExtResource("1_jon3l")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(834, 90)
+texture = ExtResource("1_jon3l")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(310, 579)
+texture = ExtResource("1_jon3l")

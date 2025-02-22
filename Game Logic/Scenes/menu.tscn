@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://muys6dk2o42v"]
+
+[ext_resource type="Script" uid="uid://boe6wblo1gm1k" path="res://Game Logic/Scripts/menu_functions.gd" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://lr60ipim4mka" path="res://Game Logic/Scripts/automated_button.gd" id="2_ouk20"]
+[ext_resource type="Script" uid="uid://b4fp3fw8l5mpo" path="res://Game Logic/Scripts/automated_option_button.gd" id="3_btpsg"]
+
+[node name="MenuRoot" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 656.0
+script = ExtResource("1_lti8b")
+
+[node name="Resume" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 64.0
+offset_right = 640.0
+offset_bottom = 128.0
+text = "Play"
+script = ExtResource("2_ouk20")
+metadata/_custom_type_script = "uid://lr60ipim4mka"
+
+[node name="Quit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 448.0
+offset_right = 640.0
+offset_bottom = 512.0
+text = "Quit"
+
+[node name="PlayerNumber" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 320.0
+offset_right = 640.0
+offset_bottom = 384.0
+selected = 0
+item_count = 3
+popup/item_0/text = "2 players"
+popup/item_0/id = 0
+popup/item_1/text = "4 players"
+popup/item_1/id = 1
+popup/item_2/text = "6 players"
+popup/item_2/id = 2
+script = ExtResource("3_btpsg")
+
+[node name="PlaySpeed" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 192.0
+offset_right = 640.0
+offset_bottom = 256.0
+selected = 1
+item_count = 4
+popup/item_0/text = "Slow"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Fast"
+popup/item_2/id = 2
+popup/item_3/text = "Lightning"
+popup/item_3/id = 3
+script = ExtResource("3_btpsg")
+
+[connection signal="pressed" from="Control/Resume" to="Control/Resume" method="_on_pressed"]
+[connection signal="self_pressed" from="Control/Resume" to="Control" method="_on_resume_self_pressed"]
+[connection signal="pressed" from="Control/Quit" to="Control" method="_on_quit_pressed"]
+[connection signal="item_selected" from="Control/PlayerNumber" to="Control/PlayerNumber" method="_on_item_selected"]
+[connection signal="self_pressed" from="Control/PlayerNumber" to="Control" method="_on_player_number_self_pressed"]
+[connection signal="self_selected_item" from="Control/PlayerNumber" to="Control" method="_on_player_number_self_selected_item"]
+[connection signal="toggled" from="Control/PlayerNumber" to="Control/PlayerNumber" method="_on_toggled"]
+[connection signal="item_selected" from="Control/PlaySpeed" to="Control/PlaySpeed" method="_on_item_selected"]
+[connection signal="self_pressed" from="Control/PlaySpeed" to="Control" method="_on_play_speed_self_pressed"]
+[connection signal="self_selected_item" from="Control/PlaySpeed" to="Control" method="_on_play_speed_self_selected_item"]
+[connection signal="toggled" from="Control/PlaySpeed" to="Control/PlaySpeed" method="_on_toggled"]

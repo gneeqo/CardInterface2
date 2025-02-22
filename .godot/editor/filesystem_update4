@@ -17,3 +17,16 @@ res://Behaviors/immediate_callback.tscn
 res://Behaviors/translate_out_UI.tscn
 res://Behaviors/translate_in_UI.tscn
 res://Base Objects/level_loader.gd
+res://Game Logic/Scenes/main.tscn
+res://Game Logic/Scenes/menu.tscn
+res://Game Logic/Scenes/test_1.tscn
+res://Game Logic/Scenes/test_2.tscn
+res://Actions/fade.gd
+res://Game Logic/Scripts/menu_functions.gd
+res://Game Logic/Scripts/automated_button.gd
+res://Game Logic/Scenes/Play Spaces/two_players.tscn
+res://Game Logic/Scenes/Play Spaces/four_players.tscn
+res://Game Logic/Scenes/Play Spaces/six_players.tscn
+res://Game Logic/Scenes/auto_selectable.gd
+res://Game Logic/Scripts/automated_option_button.gd
+res://Base Objects/input_processor.gd

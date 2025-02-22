@@ -44,7 +44,7 @@ func automate_input():
 	var rng = RandomNumberGenerator.new()
 	for node in clickable_nodes:
 		if(rng.randf_range(0,10) >5):
-			node.automated_activation()
+			node.auto_press()
 	
 	if(rng.randf_range(0,10) >5):
 		escape_just_pressed = true
