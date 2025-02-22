@@ -11,6 +11,9 @@ var menu_done_moving:bool = true
 var menu_active : bool = false
 var level_done_loading : bool = true
 
+var current_level_index : int = 0
+
+
 func _ready():
 	var start_level = level_scenes[0].instantiate()
 	get_tree().root.add_child.call_deferred(start_level)
@@ -18,9 +21,9 @@ func _ready():
 	
 func _process(dt:float)->void:
 	if InputProcessor.escape_just_pressed:
-		if menu_done_moving and not menu_active:
+		if menu_done_moving and not menu_active and level_done_loading:
 			load_main_menu()
-		elif menu_done_moving and menu_active:
+		elif menu_done_moving and menu_active and not InputProcessor.automating:
 			dispose_main_menu()
 	
 
@@ -28,12 +31,14 @@ func _process(dt:float)->void:
 	
 
 func load_scene_at_index(index:int):
-	if level_done_loading:
+	if level_done_loading and menu_done_moving:
 		prev_level_root = active_level_root
 		active_level_root = level_scenes[index].instantiate()
 		get_tree().root.add_child(active_level_root)
 		
 		level_done_loading = false
+		
+		current_level_index = index
 		
 		intro_scene(active_level_root)
 		dispose_scene(prev_level_root)
