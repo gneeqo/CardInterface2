@@ -22,6 +22,7 @@ func _process(dt:float)->void:
 			load_main_menu()
 		elif menu_done_moving and menu_active:
 			dispose_main_menu()
+	
 
 	
 	
@@ -39,13 +40,17 @@ func load_scene_at_index(index:int):
 
 func set_menu_done_moving():
 	menu_done_moving = true
+	
+func set_menu_done_moving_and_unpause():
+	menu_done_moving = true
+	GlobalExecutorList.unpause_world_executors()
 
 func set_level_done_loading():
 	level_done_loading = true
 
 
 func load_main_menu():
-	var behavior = load("res://Behaviors/translate_in.tscn").instantiate()
+	var behavior = load("res://Behaviors/translate_in_UI.tscn").instantiate()
 	
 	behavior.provide_callback(Callable(self,"set_menu_done_moving"))
 	
@@ -56,10 +61,12 @@ func load_main_menu():
 	menu_node.add_child(behavior)
 	menu_active = true
 	menu_done_moving = false
+	
+	GlobalExecutorList.pause_world_executors()
 
 func dispose_main_menu():
-	var behavior = load("res://Behaviors/translate_out.tscn").instantiate()
-	behavior.provide_callback(Callable(self,"set_menu_done_moving"))
+	var behavior = load("res://Behaviors/translate_out_UI.tscn").instantiate()
+	behavior.provide_callback(Callable(self,"set_menu_done_moving_and_unpause"))
 	menu_active = false
 	menu_done_moving = false
 	menu_node.add_child(behavior)

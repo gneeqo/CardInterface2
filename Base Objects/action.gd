@@ -32,9 +32,8 @@ var first_update : bool = true
 
 ##How fast does time move for this action?
 var time_scale : float = 1.0 :
-	set(value):
-		if value < 0.0:
-			time_scale = 0.0
+	get:
+		return InputProcessor.time_scale
 ##Is this action infinite duration?
 var inf : bool :
 	get: return duration == 0.0
@@ -90,6 +89,7 @@ var should_delete:bool = false
 #disable processing, actions are processed only by ActionLists
 func _ready():
 	set_process_mode(PROCESS_MODE_DISABLED)
+	
 
 #modify elapsed_time based on delta time
 #decrement if reversing, otherwise increment

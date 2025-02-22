@@ -1,22 +1,22 @@
+res://menu.tscn
 res://Base Objects/action.gd
-res://Actions/destroy.gd
-res://translate_out.tscn
-res://main.tscn
-res://Base Objects/executor.gd
-res://Base Objects/level_loader.gd
-res://test_2.tscn
 res://Base Objects/action.tscn
 res://Base Objects/action_list.tscn
 res://Base Objects/executor.tscn
 res://Game Logic/Scenes/card.tscn
 res://Game Logic/Scenes/deck.tscn
 res://Game Logic/Scenes/player.tscn
+res://main.tscn
 res://Behaviors/translate_out.tscn
 res://test_1.tscn
+res://test_2.tscn
 res://Behaviors/translate_in.tscn
-res://menu.tscn
-res://menu_functions.gd
 res://Behaviors/translate_out_down.tscn
-res://Base Objects/input_processor.gd
-res://Actions/callback.gd
 res://Behaviors/immediate_callback.tscn
+res://automated_button.gd
+res://menu_functions.gd
+res://Base Objects/input_processor.gd
+res://Base Objects/level_loader.gd
+res://Behaviors/translate_in_UI.tscn
+res://Behaviors/translate_out_UI.tscn
+res://Base Objects/executor.gd

@@ -129,9 +129,9 @@ func _process(dt:float):
 	if globalList == 0 :
 		globallyPaused = GlobalExecutorList.WorldSpacePaused
 	elif globalList == 1:
-		globallyPaused = GlobalExecutorList.WorldSpacePaused
+		globallyPaused = GlobalExecutorList.UISpacePaused
 	
-	if globallyPaused : pass
+	if globallyPaused : return
 	
 	if not paused:
 		if initialized:
