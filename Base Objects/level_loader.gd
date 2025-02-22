@@ -74,12 +74,12 @@ func dispose_main_menu():
 
 
 func intro_scene(scene:Node2D):
-	var behavior = load("res://Behaviors/translate_in.tscn").instantiate()
+	var behavior = load("res://Behaviors/translate_in_UI.tscn").instantiate()
 	behavior.provide_callback(Callable(self,"set_level_done_loading"))
 	
 	scene.position = Vector2(2000,100)
 	scene.add_child(behavior)
 
 func dispose_scene(scene:Node2D):
-	var behavior = load("res://Behaviors/translate_out.tscn").instantiate()
+	var behavior = load("res://Behaviors/translate_out_UI.tscn").instantiate()
 	scene.add_child(behavior)
