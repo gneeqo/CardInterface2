@@ -30,3 +30,5 @@ res://Game Logic/Scenes/Play Spaces/six_players.tscn
 res://Game Logic/Scenes/auto_selectable.gd
 res://Game Logic/Scripts/automated_option_button.gd
 res://Base Objects/input_processor.gd
+res://Game Logic/Scripts/card_player.gd
+res://Game Logic/Scripts/referee.gd

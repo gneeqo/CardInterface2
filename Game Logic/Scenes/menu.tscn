@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://muys6dk2o42v"]
 
-[ext_resource type="Script" uid="uid://boe6wblo1gm1k" path="res://Game Logic/Scripts/menu_functions.gd" id="1_lti8b"]
-[ext_resource type="Script" uid="uid://lr60ipim4mka" path="res://Game Logic/Scripts/automated_button.gd" id="2_ouk20"]
-[ext_resource type="Script" uid="uid://b4fp3fw8l5mpo" path="res://Game Logic/Scripts/automated_option_button.gd" id="3_btpsg"]
+[ext_resource type="Script" uid="uid://boe6wblo1gm1k" path="res://Game Logic/Scripts/Menus/menu_functions.gd" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://lr60ipim4mka" path="res://Game Logic/Scripts/Menus/automated_button.gd" id="2_ouk20"]
+[ext_resource type="Script" uid="uid://b4fp3fw8l5mpo" path="res://Game Logic/Scripts/Menus/automated_option_button.gd" id="3_btpsg"]
 
 [node name="MenuRoot" type="Node2D"]
 
