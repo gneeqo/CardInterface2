@@ -5,6 +5,11 @@ static func translate_then_callback(function:Callable,location:Vector2, duration
 	var new_executor = ExecAutoActivate.new()
 	new_executor.add_child(ActionFactory.translate_to(location,duration,eased,ease_type,drift,true))
 	new_executor.add_child(ActionFactory.callback(function))
-	
-	
+
+	return new_executor
+
+static func delayed_callback(function:Callable,duration:float = 0.01 ) -> Executor:
+	var new_executor = ExecAutoActivate.new()
+	new_executor.add_child(ActionFactory.callback(function,duration))
+
 	return new_executor

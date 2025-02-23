@@ -24,7 +24,7 @@ static var textures:Array[Array]
 
 var owning_group : CardGroup
 var in_transit : bool = false
-
+var travel_duration : float = 1.0
 
 
 static func create(new_value:int,new_suit:Suits) ->Card:
@@ -36,9 +36,18 @@ static func create(new_value:int,new_suit:Suits) ->Card:
 	
 
 func send_to(target:CardGroup):
+	target.prep_for_card()
 	var receiving_function = Callable(target,"receive_card").bind(self)
-	add_child(BehaviorFactory.translate_then_callback(receiving_function,target._new_card_offset(),1))
+	
+	var set_z = func(index):
+		set_z_index(index)
+	
+	var midway_function = set_z.bind(target.num_cards)
+	add_child(BehaviorFactory.translate_then_callback(receiving_function,target._new_card_offset(),travel_duration))
+	add_child(BehaviorFactory.delayed_callback(midway_function, travel_duration / 2))
 	in_transit = true
+	
+	
 
 
 

@@ -11,6 +11,8 @@
 script = ExtResource("1_eodvt")
 players = [NodePath("../P1"), NodePath("../P2")]
 deck = NodePath("../Deck")
+hand_size = 4
+deal_delay = 0.6
 metadata/_custom_type_script = "uid://duix2ylp10g3r"
 
 [node name="Button" type="Button" parent="referee"]
