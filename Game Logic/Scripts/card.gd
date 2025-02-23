@@ -63,8 +63,8 @@ func _init():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var scale = transform.get_scale()
+func _process(_delta: float) -> void:
+	
 	if(scale.x <0 ||scale.y < 0):
 		$BackSprite.visible = true
 		$FrontSprite.visible = false

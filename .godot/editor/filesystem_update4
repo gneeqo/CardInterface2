@@ -1,44 +1,20 @@
-res://menu.tscn
+res://Game Logic/Scenes/main.tscn
 res://Base Objects/action.gd
-res://menu_functions.gd
+res://Game Logic/Scripts/Card Groups/card_group.gd
 res://Base Objects/action.tscn
 res://Base Objects/action_list.tscn
 res://Base Objects/executor.tscn
 res://Game Logic/Scenes/card.tscn
-res://Game Logic/Scenes/deck.tscn
-res://Game Logic/Scenes/player.tscn
-res://main.tscn
 res://Behaviors/translate_out.tscn
-res://test_1.tscn
-res://test_2.tscn
 res://Behaviors/translate_in.tscn
+res://Game Logic/Scenes/menu.tscn
 res://Behaviors/translate_out_down.tscn
 res://Behaviors/immediate_callback.tscn
 res://Behaviors/translate_out_UI.tscn
 res://Behaviors/translate_in_UI.tscn
-res://Base Objects/level_loader.gd
-res://Game Logic/Scenes/main.tscn
-res://Game Logic/Scenes/menu.tscn
-res://Game Logic/Scenes/test_1.tscn
-res://Game Logic/Scenes/test_2.tscn
-res://Actions/fade.gd
-res://Game Logic/Scripts/menu_functions.gd
-res://Game Logic/Scripts/automated_button.gd
-res://Game Logic/Scenes/Play Spaces/two_players.tscn
 res://Game Logic/Scenes/Play Spaces/four_players.tscn
 res://Game Logic/Scenes/Play Spaces/six_players.tscn
-res://Game Logic/Scenes/auto_selectable.gd
-res://Game Logic/Scripts/automated_option_button.gd
-res://Base Objects/input_processor.gd
-res://Game Logic/Scripts/card_player.gd
-res://Game Logic/Scripts/referee.gd
-res://Game Logic/Scripts/card_group.gd
-res://Game Logic/Scripts/deck.gd
-res://Game Logic/Scripts/card.gd
-res://Game Logic/Scripts/Card Groups/card_group.gd
-res://Game Logic/Scripts/Card Groups/deck.gd
-res://Game Logic/Scripts/Card Groups/hand.gd
-res://Game Logic/Scripts/Card Groups/pile.gd
-res://Game Logic/Scripts/Card Groups/trick.gd
-res://Factories/action_factory.gd
+res://Game Logic/Scenes/Play Spaces/two_players.tscn
+res://Actions/Translate.gd
 res://Factories/behavior_factory.gd
+res://Game Logic/Scripts/card.gd

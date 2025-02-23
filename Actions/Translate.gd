@@ -10,7 +10,7 @@ var final_target : Vector2
 		
 
 func _begin_action():
-	initial_position = affected_node.position
+	initial_position = affected_node.global_position
 	if drift != 0:
 			var rng = RandomNumberGenerator.new()
 			final_target = Vector2(target.x + rng.randf_range(-drift,drift)\
@@ -18,7 +18,7 @@ func _begin_action():
 	else: final_target =  target
 
 func _lerp_value(alpha:float):
-	affected_node.position = lerp(initial_position,final_target,alpha)
+	affected_node.global_position = lerp(initial_position,final_target,alpha)
 
 func _clone():
 	var new_action = super._clone()

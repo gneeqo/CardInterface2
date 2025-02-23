@@ -10,8 +10,13 @@ var num_cards : int = 0
 func _add_card(payload:Card):
 	cards_in_group.push_back(payload)
 	payload.owning_group = self
-	add_child(payload)
-
+	
+	if !payload.get_parent():
+		add_child(payload)
+	else:
+		reparent(payload)
+		
+		
 func receive_card(payload:Card):
 	num_cards +=1
 	_add_card(payload)
@@ -34,5 +39,5 @@ func _new_card_rotation()->float:
 	
 func random_card()->Card:
 	var rng = RandomNumberGenerator.new()
-	return cards_in_group[randi_range(0,cards_in_group.size()-1)]
+	return cards_in_group[rng.randi_range(0,cards_in_group.size()-1)]
 	
