@@ -35,6 +35,12 @@ static func create(new_value:int,new_suit:Suits) ->Card:
 	return new_card
 	
 
+func send_to(target:CardGroup):
+	var receiving_function = Callable(target,"receive_card").bind(self)
+	add_child(BehaviorFactory.translate_then_callback(receiving_function,target._new_card_offset(),1))
+	in_transit = true
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _init():
@@ -44,7 +50,7 @@ func _init():
 	textures.push_back(diamonds_tex)
 	
 	for i in range(0,4):
-		for j in range(0,13):
+		for j in range(1,14):
 			match i:
 				0:
 					textures[i].push_back(load("res://Assets/Sprites/Spades "+str(j)+".png"))

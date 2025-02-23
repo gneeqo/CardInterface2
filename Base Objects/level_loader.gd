@@ -27,9 +27,6 @@ func _process(_dt:float)->void:
 			dispose_main_menu()
 	
 
-	
-	
-
 func load_scene_at_index(index:int):
 	if level_done_loading and menu_done_moving:
 		prev_level_root = active_level_root

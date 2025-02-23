@@ -41,3 +41,4 @@ res://Game Logic/Scripts/Card Groups/hand.gd
 res://Game Logic/Scripts/Card Groups/pile.gd
 res://Game Logic/Scripts/Card Groups/trick.gd
 res://Factories/action_factory.gd
+res://Factories/behavior_factory.gd
