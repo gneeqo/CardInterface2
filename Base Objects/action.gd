@@ -23,8 +23,10 @@ var affects_node : bool = true
 ##Does this action use easing?
 @export var eased : bool
 
+
+enum EaseType {easeInSine,easeOutSine,easeInOutSine}
 ##What easing function does this action use?
-@export_enum("easeInSine","easeOutSine","easeInOutSine") var ease_type : int
+@export var ease_type : EaseType
 
 var spawned_by_clone : bool = false
 

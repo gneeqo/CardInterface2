@@ -32,3 +32,12 @@ res://Game Logic/Scripts/automated_option_button.gd
 res://Base Objects/input_processor.gd
 res://Game Logic/Scripts/card_player.gd
 res://Game Logic/Scripts/referee.gd
+res://Game Logic/Scripts/card_group.gd
+res://Game Logic/Scripts/deck.gd
+res://Game Logic/Scripts/card.gd
+res://Game Logic/Scripts/Card Groups/card_group.gd
+res://Game Logic/Scripts/Card Groups/deck.gd
+res://Game Logic/Scripts/Card Groups/hand.gd
+res://Game Logic/Scripts/Card Groups/pile.gd
+res://Game Logic/Scripts/Card Groups/trick.gd
+res://Factories/action_factory.gd

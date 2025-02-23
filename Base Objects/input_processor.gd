@@ -22,7 +22,7 @@ static var time_scale : float :
 		return time_scales[current_time_scale_index]
 
 
-func _process(dt:float):
+func _process(_dt:float):
 	
 	if(Input.is_action_just_pressed("Automate")):
 		if automating:

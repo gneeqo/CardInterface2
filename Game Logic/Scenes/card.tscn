@@ -23,5 +23,3 @@ texture = ExtResource("2_t3i1c")
 visible = false
 z_index = -1
 texture = ExtResource("3_pdgng")
-
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

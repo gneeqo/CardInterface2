@@ -19,7 +19,7 @@ func _ready():
 	get_tree().root.add_child.call_deferred(start_level)
 	active_level_root = start_level
 	
-func _process(dt:float)->void:
+func _process(_dt:float)->void:
 	if InputProcessor.escape_just_pressed:
 		if menu_done_moving and not menu_active and level_done_loading:
 			load_main_menu()
