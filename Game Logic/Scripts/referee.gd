@@ -24,7 +24,7 @@ func _on_button_pressed() -> void:
 	deal_hand_to_players()
 
 
-func _process(dt:float)->void:
+func _process(_dt:float)->void:
 	#doing this in process so it will start when the final card arrives
 	if trick.cards_in_group.size() == players.size():
 		if turn_index == -1:

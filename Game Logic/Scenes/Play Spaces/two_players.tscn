@@ -27,13 +27,22 @@ text = "Deal Hand
 "
 metadata/_edit_use_anchors_ = true
 
+[node name="advance trick" type="Button" parent="referee"]
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 185.0
+offset_bottom = 127.0
+text = "advance trick
+"
+metadata/_edit_use_anchors_ = true
+
 [node name="Deck" type="Node2D" parent="."]
-position = Vector2(541, 289)
+position = Vector2(128, 512)
 script = ExtResource("2_rfg22")
 metadata/_custom_type_script = "uid://blir3brgd8gff"
 
 [node name="P1" type="Node2D" parent="."]
-position = Vector2(496, 603)
+position = Vector2(512, 576)
 script = ExtResource("1_g3bv0")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
@@ -44,13 +53,13 @@ face_up = true
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P1Winnings" type="Node2D" parent="P1"]
-position = Vector2(116, -2)
+position = Vector2(-64, 0)
 script = ExtResource("5_ov3kl")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P2" type="Node2D" parent="."]
-position = Vector2(498, 37)
+position = Vector2(640, 64)
 rotation = 3.14159
 script = ExtResource("1_g3bv0")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
@@ -61,15 +70,23 @@ script = ExtResource("4_rj8mh")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P2Winnings" type="Node2D" parent="P2"]
-position = Vector2(116, 3)
+position = Vector2(-72, 5.00679e-06)
 script = ExtResource("5_ov3kl")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="Trick" type="Node2D" parent="."]
-position = Vector2(432, 288)
+position = Vector2(576, 320)
 script = ExtResource("5_rfg22")
 face_up = true
 metadata/_custom_type_script = "uid://doe4nq37ji62e"
 
+[node name="Anchor1" type="Node2D" parent="Trick"]
+position = Vector2(0, 64)
+
+[node name="Anchor2" type="Node2D" parent="Trick"]
+position = Vector2(0, -64)
+rotation = 3.14159
+
 [connection signal="pressed" from="referee/Button" to="referee" method="_on_button_pressed"]
+[connection signal="pressed" from="referee/advance trick" to="referee" method="_on_advance_trick_pressed"]

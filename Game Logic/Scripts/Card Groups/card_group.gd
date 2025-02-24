@@ -53,7 +53,7 @@ func _new_card_offset()->Vector2:
 	return global_position
 
 func _new_card_rotation()->float:
-	return rotation
+	return global_rotation
 	
 	
 func random_card()->Card:

@@ -35,6 +35,24 @@ eased:bool = true, ease_type:Action.EaseType = Action.EaseType.easeInOutSine,\
 	
 	
 	return newAction
+	
+static func fade(opacity:float,duration:float,\
+eased:bool = true, ease_type:Action.EaseType = Action.EaseType.easeInOutSine,\
+ drift:float = 0 ,blocking:bool = false,looping:bool = false, oscillating:bool = false)->Fade:
+	var newAction = Fade.new()
+	
+	newAction.target_opacity = opacity
+	newAction.drift = drift
+	newAction.duration = duration
+	newAction.eased = eased
+	newAction.ease_type = ease_type
+	newAction.blocking = blocking
+	newAction.looping = looping
+	newAction.oscillating = oscillating
+	
+	
+	return newAction
+	
 
 static func scale_to(scale:Vector2,duration:float,\
 eased:bool = true, ease_type:Action.EaseType = Action.EaseType.easeInOutSine,\

@@ -70,7 +70,7 @@ func send_to(target:CardGroup):
 		add_child(BehaviorFactory.scale(Vector2(1,1),travel_duration))
 	
 	#not using this for anything right now
-	#thought I may need it
+	#may need eventually
 	in_transit = true
 	
 	

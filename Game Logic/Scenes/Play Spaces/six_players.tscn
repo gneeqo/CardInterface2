@@ -27,15 +27,23 @@ text = "Deal Hand
 "
 metadata/_edit_use_anchors_ = true
 
+[node name="advance trick" type="Button" parent="referee"]
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 185.0
+offset_bottom = 127.0
+text = "advance trick
+"
+metadata/_edit_use_anchors_ = true
+
 [node name="Deck" type="Node2D" parent="."]
-position = Vector2(541, 289)
+position = Vector2(128, 512)
 script = ExtResource("2_n1thx")
 metadata/_custom_type_script = "uid://blir3brgd8gff"
 
 [node name="P1" type="Node2D" parent="."]
-position = Vector2(192, 616)
+position = Vector2(320, 576)
 script = ExtResource("3_ojjv5")
-is_human = true
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P1Hand" type="Node2D" parent="P1"]
@@ -50,7 +58,7 @@ face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P2" type="Node2D" parent="."]
-position = Vector2(64, 248)
+position = Vector2(64, 256)
 rotation = 1.5708
 script = ExtResource("3_ojjv5")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
@@ -67,18 +75,17 @@ face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P3" type="Node2D" parent="."]
-position = Vector2(368, 64)
+position = Vector2(512, 64)
 rotation = -3.13293
 script = ExtResource("3_ojjv5")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P3Hand" type="Node2D" parent="P3"]
-position = Vector2(0, -1)
 script = ExtResource("4_ojjv5")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P3Winnings" type="Node2D" parent="P3"]
-position = Vector2(-79.9971, 0.69262)
+position = Vector2(-64, 0.693)
 script = ExtResource("5_ymddk")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
@@ -90,7 +97,6 @@ script = ExtResource("3_ojjv5")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P4Hand" type="Node2D" parent="P4"]
-position = Vector2(0, -1)
 script = ExtResource("4_ojjv5")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
@@ -107,7 +113,6 @@ script = ExtResource("3_ojjv5")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P5Hand" type="Node2D" parent="P5"]
-position = Vector2(0, -1)
 script = ExtResource("4_ojjv5")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
@@ -118,26 +123,48 @@ face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P6" type="Node2D" parent="."]
-position = Vector2(576, 616)
+position = Vector2(640, 576)
 scale = Vector2(1, 1)
 script = ExtResource("3_ojjv5")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P6Hand" type="Node2D" parent="P6"]
-position = Vector2(-8, -1.19209e-07)
 script = ExtResource("4_ojjv5")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P6Winnings" type="Node2D" parent="P6"]
-position = Vector2(-72, -3.57628e-07)
+position = Vector2(-64, 0)
 script = ExtResource("5_ymddk")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="Trick" type="Node2D" parent="."]
-position = Vector2(432, 288)
+position = Vector2(576, 320)
 script = ExtResource("5_n1thx")
 face_up = true
 metadata/_custom_type_script = "uid://doe4nq37ji62e"
 
+[node name="Anchor1" type="Node2D" parent="Trick"]
+position = Vector2(-64, 64)
+
+[node name="Anchor2" type="Node2D" parent="Trick"]
+position = Vector2(-128, 0)
+rotation = 1.5708
+
+[node name="Anchor3" type="Node2D" parent="Trick"]
+position = Vector2(-64, -64)
+rotation = -3.14159
+
+[node name="Anchor4" type="Node2D" parent="Trick"]
+position = Vector2(64, -64)
+rotation = -3.14159
+
+[node name="Anchor5" type="Node2D" parent="Trick"]
+position = Vector2(128, 0)
+rotation = -1.5708
+
+[node name="Anchor6" type="Node2D" parent="Trick"]
+position = Vector2(64, 64)
+
 [connection signal="pressed" from="referee/Button" to="referee" method="_on_button_pressed"]
+[connection signal="pressed" from="referee/advance trick" to="referee" method="_on_advance_trick_pressed"]
