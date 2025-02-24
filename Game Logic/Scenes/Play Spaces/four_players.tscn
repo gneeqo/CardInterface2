@@ -41,29 +41,27 @@ position = Vector2(541, 289)
 script = ExtResource("2_is0j2")
 metadata/_custom_type_script = "uid://blir3brgd8gff"
 
-[node name="P1" type="Node2D" parent="." node_paths=PackedStringArray("winnings_pile", "hand")]
-position = Vector2(496, 602)
+[node name="P1" type="Node2D" parent="."]
+position = Vector2(448, 600)
 script = ExtResource("3_q56tl")
-winnings_pile = NodePath("P1Winnings")
-hand = NodePath("P1Hand")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P1Hand" type="Node2D" parent="P1"]
 position = Vector2(0, -1)
 script = ExtResource("4_q56tl")
+face_up = true
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P1Winnings" type="Node2D" parent="P1"]
-position = Vector2(116, -2)
+position = Vector2(-64, 7.99998)
 script = ExtResource("5_v2tka")
+face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
-[node name="P2" type="Node2D" parent="." node_paths=PackedStringArray("winnings_pile", "hand")]
+[node name="P2" type="Node2D" parent="."]
 position = Vector2(64, 376)
 rotation = -1.58667
 script = ExtResource("3_q56tl")
-winnings_pile = NodePath("P2Winnings")
-hand = NodePath("P2Hand")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P2Hand" type="Node2D" parent="P2"]
@@ -72,16 +70,15 @@ script = ExtResource("4_q56tl")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P2Winnings" type="Node2D" parent="P2"]
-position = Vector2(116, 3)
+position = Vector2(-71.991, -1.14271)
 script = ExtResource("5_v2tka")
+face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
-[node name="P3" type="Node2D" parent="." node_paths=PackedStringArray("winnings_pile", "hand")]
+[node name="P3" type="Node2D" parent="."]
 position = Vector2(584, 64)
 rotation = -3.13293
 script = ExtResource("3_q56tl")
-winnings_pile = NodePath("P3Winnings")
-hand = NodePath("P3Hand")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P3Hand" type="Node2D" parent="P3"]
@@ -90,31 +87,32 @@ script = ExtResource("4_q56tl")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P3Winnings" type="Node2D" parent="P3"]
-position = Vector2(116, -2)
+position = Vector2(-55.9979, 0.484834)
 script = ExtResource("5_v2tka")
+face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
-[node name="P4" type="Node2D" parent="." node_paths=PackedStringArray("winnings_pile", "hand")]
-position = Vector2(1088, 256)
-rotation = 1.56497
+[node name="P4" type="Node2D" parent="."]
+position = Vector2(1088, 320)
+rotation = -1.5708
 script = ExtResource("3_q56tl")
-winnings_pile = NodePath("P4Winnings")
-hand = NodePath("P4Hand")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P4Hand" type="Node2D" parent="P4"]
-position = Vector2(0, -1)
+position = Vector2(-2.76091e-06, 0.000138998)
 script = ExtResource("4_q56tl")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P4Winnings" type="Node2D" parent="P4"]
-position = Vector2(116, 3)
+position = Vector2(-64, -0.000142932)
 script = ExtResource("5_v2tka")
+face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="Trick" type="Node2D" parent="."]
 position = Vector2(432, 288)
 script = ExtResource("5_is0j2")
+face_up = true
 metadata/_custom_type_script = "uid://doe4nq37ji62e"
 
 [connection signal="pressed" from="referee/Button" to="referee" method="_on_button_pressed"]

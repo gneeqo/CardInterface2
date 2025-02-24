@@ -10,7 +10,7 @@ var final_angle : float
 
 
 func _begin_action():
-	initial_angle = affected_node.rotation
+	initial_angle = affected_node.global_rotation
 	
 	if drift != 0:
 		var rng = RandomNumberGenerator.new()
@@ -20,7 +20,7 @@ func _begin_action():
 	
 
 func _lerp_value(alpha:float):
-	affected_node.rotation = lerp(initial_angle,final_angle,alpha)
+	affected_node.global_rotation = lerp(initial_angle,final_angle,alpha)
 
 func _clone():
 	var new_action = super._clone()

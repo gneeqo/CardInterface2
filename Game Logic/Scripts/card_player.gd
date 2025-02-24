@@ -2,8 +2,8 @@ class_name CardPlayer extends Node2D
 
 @export var is_human : bool = false
 
-@export var winnings_pile : Pile
-@export var hand : Hand
+var winnings_pile : Pile
+var hand : Hand
 
 var referee : Referee
 
@@ -11,6 +11,11 @@ func _ready():
 	referee = get_node_or_null("../referee")
 	if referee == null:
 		print("Game cannot start without referee!")
+	for child in get_children():
+		if child is Pile:
+			winnings_pile = child
+		if child is Hand:
+			hand = child
 
 
 func take_turn():

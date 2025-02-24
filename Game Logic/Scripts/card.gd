@@ -28,12 +28,20 @@ var owning_player : CardPlayer
 var in_transit : bool = false
 var travel_duration : float = 1.0
 
+var face_up : bool :
+	get:
+		if (scale.x <0 ||scale.y < 0):
+			return false
+		return true
+
 
 static func create(new_value:int,new_suit:Suits) ->Card:
 	var this_script : PackedScene = load("res://Game Logic/Scenes/card.tscn")
 	var new_card:Card = this_script.instantiate()
 	new_card.suit = new_suit
 	new_card.value = new_value
+	new_card.scale = Vector2(-1,1)
+	
 	return new_card
 	
 
@@ -41,12 +49,28 @@ func send_to(target:CardGroup):
 	target.prep_for_card()
 	var receiving_function = Callable(target,"receive_card").bind(self)
 	
+	
+	#translate to new location, then call receiving function on card group
+	#slight drift
+	add_child(BehaviorFactory.translate_then_callback(receiving_function,target._new_card_offset(),travel_duration,1.5))
+	#rotate to new rotation along the way
+	#very slight drift
+	add_child(BehaviorFactory.rotate(target._new_card_rotation(),travel_duration))
+	
+	#change z index halfway through the journey
+	#it should be equal to the order in which it was added to the group
 	var set_z = func(index):
 		set_z_index(index)
-	
 	var midway_function = set_z.bind(target.num_cards)
-	add_child(BehaviorFactory.translate_then_callback(receiving_function,target._new_card_offset(),travel_duration))
 	add_child(BehaviorFactory.delayed_callback(midway_function, travel_duration / 2))
+	
+	if face_up and not target.face_up:
+		add_child(BehaviorFactory.scale(Vector2(-1,1),travel_duration))
+	elif not face_up and target.face_up:
+		add_child(BehaviorFactory.scale(Vector2(1,1),travel_duration))
+	
+	#not using this for anything right now
+	#thought I may need it
 	in_transit = true
 	
 	
@@ -76,12 +100,13 @@ func _init():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	
-	if(scale.x <0 ||scale.y < 0):
-		$BackSprite.visible = true
-		$FrontSprite.visible = false
-	else:
+	if(face_up):
 		$BackSprite.visible = false
 		$FrontSprite.visible = true
+	else:
+		$BackSprite.visible = true
+		$FrontSprite.visible = false
+		
 
 
 func change_FrontSprite(newTex:Texture2D):
