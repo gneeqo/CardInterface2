@@ -23,6 +23,8 @@ static var diamonds_tex:Array[Texture2D]
 static var textures:Array[Array]
 
 var owning_group : CardGroup
+var owning_player : CardPlayer
+
 var in_transit : bool = false
 var travel_duration : float = 1.0
 

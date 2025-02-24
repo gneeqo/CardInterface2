@@ -19,3 +19,6 @@ res://Game Logic/Scripts/referee.gd
 res://Factories/behavior_factory.gd
 res://Game Logic/Scripts/Card Groups/card_group.gd
 res://Game Logic/Scripts/card.gd
+res://Actions/fade.gd
+res://Game Logic/Scripts/card_player.gd
+res://Game Logic/Scripts/Card Groups/hand.gd

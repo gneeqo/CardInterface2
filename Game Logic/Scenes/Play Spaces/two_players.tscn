@@ -1,18 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsibegt71rbqt"]
+[gd_scene load_steps=7 format=3 uid="uid://bsibegt71rbqt"]
 
 [ext_resource type="Script" uid="uid://duix2ylp10g3r" path="res://Game Logic/Scripts/referee.gd" id="1_eodvt"]
 [ext_resource type="Script" uid="uid://y2q4a2aj6rf6" path="res://Game Logic/Scripts/card_player.gd" id="1_g3bv0"]
-[ext_resource type="Script" uid="uid://dcs26qvxhplgt" path="res://Game Logic/Scripts/Card Groups/card_group.gd" id="2_mtfjg"]
 [ext_resource type="Script" uid="uid://blir3brgd8gff" path="res://Game Logic/Scripts/Card Groups/deck.gd" id="2_rfg22"]
+[ext_resource type="Script" uid="uid://dgq8afktykbss" path="res://Game Logic/Scripts/Card Groups/hand.gd" id="4_rj8mh"]
+[ext_resource type="Script" uid="uid://bouxq6yh6afjh" path="res://Game Logic/Scripts/Card Groups/pile.gd" id="5_ov3kl"]
+[ext_resource type="Script" uid="uid://doe4nq37ji62e" path="res://Game Logic/Scripts/Card Groups/trick.gd" id="5_rfg22"]
 
 [node name="TwoPlayers" type="Node2D"]
 
-[node name="referee" type="Node" parent="." node_paths=PackedStringArray("players", "deck")]
+[node name="referee" type="Node" parent="." node_paths=PackedStringArray("players", "deck", "trick")]
 script = ExtResource("1_eodvt")
 players = [NodePath("../P1"), NodePath("../P2")]
 deck = NodePath("../Deck")
 hand_size = 4
-deal_delay = 0.6
+deal_delay = 0.2
+trick = NodePath("../Trick")
 metadata/_custom_type_script = "uid://duix2ylp10g3r"
 
 [node name="Button" type="Button" parent="referee"]
@@ -22,6 +25,7 @@ offset_right = 186.0
 offset_bottom = 84.0
 text = "Deal Hand
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2(541, 289)
@@ -31,35 +35,40 @@ metadata/_custom_type_script = "uid://blir3brgd8gff"
 [node name="P1" type="Node2D" parent="." node_paths=PackedStringArray("winnings_pile", "hand")]
 position = Vector2(496, 602)
 script = ExtResource("1_g3bv0")
-winnings_pile = NodePath("P1Winnings")
-hand = NodePath("P1Hand")
+winnings_pile = NodePath("")
+hand = NodePath("")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P1Hand" type="Node2D" parent="P1"]
 position = Vector2(0, -1)
-script = ExtResource("2_mtfjg")
-metadata/_custom_type_script = "uid://dcs26qvxhplgt"
+script = ExtResource("4_rj8mh")
+metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P1Winnings" type="Node2D" parent="P1"]
 position = Vector2(116, -2)
-script = ExtResource("2_mtfjg")
-metadata/_custom_type_script = "uid://dcs26qvxhplgt"
+script = ExtResource("5_ov3kl")
+metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P2" type="Node2D" parent="." node_paths=PackedStringArray("winnings_pile", "hand")]
 position = Vector2(498, 37)
 script = ExtResource("1_g3bv0")
-winnings_pile = NodePath("P2Winnings")
-hand = NodePath("P2Hand")
+winnings_pile = NodePath("")
+hand = NodePath("")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P2Hand" type="Node2D" parent="P2"]
 position = Vector2(0, -1)
-script = ExtResource("2_mtfjg")
-metadata/_custom_type_script = "uid://dcs26qvxhplgt"
+script = ExtResource("4_rj8mh")
+metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P2Winnings" type="Node2D" parent="P2"]
 position = Vector2(116, 3)
-script = ExtResource("2_mtfjg")
-metadata/_custom_type_script = "uid://dcs26qvxhplgt"
+script = ExtResource("5_ov3kl")
+metadata/_custom_type_script = "uid://bouxq6yh6afjh"
+
+[node name="Trick" type="Node2D" parent="."]
+position = Vector2(432, 288)
+script = ExtResource("5_rfg22")
+metadata/_custom_type_script = "uid://doe4nq37ji62e"
 
 [connection signal="pressed" from="referee/Button" to="referee" method="_on_button_pressed"]

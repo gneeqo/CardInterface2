@@ -4,6 +4,8 @@ class_name CardGroup extends Node2D
 
 var cards_in_group : Array[Card]
 
+signal received_card
+
 ##includes cards which are being sent
 var num_cards : int = 0
 
@@ -23,10 +25,11 @@ func prep_for_card():
 func receive_card(payload:Card):
 	payload.in_transit = false
 	_add_card(payload)
+	received_card.emit()
 	
 	
 func send_card(payload:Card,target:CardGroup):
-	num_cards -=1
+	num_cards -= 1
 	cards_in_group.erase(payload)
 
 	payload.send_to(target)

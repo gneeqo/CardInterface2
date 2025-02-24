@@ -1,6 +1,8 @@
+Pile
+Hand
+Trick
 Button
 Deck
-referee
 CardPlayer
 CardGroup
 Sprite2D
@@ -10,5 +12,3 @@ Callback
 Control
 Destroy
 Translate
-ExecAutoActivate
-Node

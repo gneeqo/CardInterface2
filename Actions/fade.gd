@@ -1,4 +1,4 @@
-class_name fade extends Action
+class_name Fade extends Action
 
 @export var target_opacity:float
 
