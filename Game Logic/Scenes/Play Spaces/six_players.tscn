@@ -44,6 +44,7 @@ metadata/_custom_type_script = "uid://blir3brgd8gff"
 [node name="P1" type="Node2D" parent="."]
 position = Vector2(320, 576)
 script = ExtResource("3_ojjv5")
+is_human = true
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P1Hand" type="Node2D" parent="P1"]
@@ -124,7 +125,6 @@ metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P6" type="Node2D" parent="."]
 position = Vector2(640, 576)
-scale = Vector2(1, 1)
 script = ExtResource("3_ojjv5")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 

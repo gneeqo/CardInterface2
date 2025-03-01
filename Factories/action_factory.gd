@@ -87,3 +87,10 @@ eased:bool = false, ease_type:Action.EaseType = Action.EaseType.easeInOutSine,\
 	
 	
 	return newAction
+
+static func delay(duration:float=0.01):
+	var newAction = Action.new()
+	newAction.duration = duration
+	newAction.blocking = true
+	return newAction
+	

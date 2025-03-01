@@ -139,17 +139,21 @@ func _process(dt:float):
 			for list in lists:
 				if loops:
 					if list.actions.size() != 0:
-						reset = false			
+						reset = false
+				else:
+					if list.actions.size() == 0:
+						queue_free()
 			
 				list.update_list(dt)
 			if reset and loops:
 				reset_executor()
 				reset = false
-	
+			
 	if resettable and not unpaused_this_frame and triggered:
 			self_clone.paused = false
 			interrupt_executor()
 	unpaused_this_frame = false
+	
 
 ##Stop execution.
 func pause():

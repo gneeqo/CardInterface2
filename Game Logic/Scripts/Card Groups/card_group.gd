@@ -34,9 +34,6 @@ func send_card(payload:Card,target:CardGroup):
 
 	payload.send_to(target)
 	
-	
-
-
 
 func update_z_order():
 	for index in cards_in_group.size():
@@ -45,8 +42,6 @@ func update_z_order():
 func shuffle():
 	cards_in_group.shuffle()
 	update_z_order()
-
-
 
 
 func _new_card_offset()->Vector2:

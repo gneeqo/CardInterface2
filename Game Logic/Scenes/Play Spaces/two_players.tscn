@@ -44,6 +44,7 @@ metadata/_custom_type_script = "uid://blir3brgd8gff"
 [node name="P1" type="Node2D" parent="."]
 position = Vector2(512, 576)
 script = ExtResource("1_g3bv0")
+is_human = true
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
 
 [node name="P1Hand" type="Node2D" parent="P1"]

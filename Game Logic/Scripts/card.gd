@@ -1,6 +1,9 @@
 class_name Card extends Node2D
 
 
+var isClickable:bool = false
+var moused_over: bool = false
+
 enum Suits {spades, clubs, hearts, diamonds}
 
 
@@ -44,7 +47,9 @@ static func create(new_value:int,new_suit:Suits) ->Card:
 	
 	return new_card
 	
-
+func _ready():
+	add_to_group("auto_clickable",true)
+	
 func send_to(target:CardGroup):
 	target.prep_for_card()
 	var receiving_function = Callable(target,"receive_card").bind(self)
@@ -73,6 +78,11 @@ func send_to(target:CardGroup):
 	#may need eventually
 	in_transit = true
 	
+	#stop the hover animation from triggering
+	#reset to normal scale
+	if isClickable:
+		_on_area_2d_mouse_exited()
+		isClickable = false
 	
 
 
@@ -107,6 +117,10 @@ func _process(_delta: float) -> void:
 		$BackSprite.visible = true
 		$FrontSprite.visible = false
 		
+	if moused_over:
+		if(InputProcessor.mouse_just_pressed and not InputProcessor.automating):
+			on_pressed()
+
 
 
 func change_FrontSprite(newTex:Texture2D):
@@ -114,3 +128,28 @@ func change_FrontSprite(newTex:Texture2D):
 
 func update_image():
 	change_FrontSprite(textures[suit][value])
+
+
+func _on_area_2d_mouse_entered() -> void:
+	if isClickable:
+		add_child(BehaviorFactory.scale(Vector2(1.2,1.2),0.2))
+		moused_over = true
+
+
+func _on_area_2d_mouse_exited() -> void:
+	if isClickable:
+		add_child(BehaviorFactory.scale(Vector2(1,1),0.3))
+		moused_over = false
+
+
+func auto_press():
+	if isClickable:
+		on_pressed()
+
+func on_pressed() -> void:
+	var referee = get_tree().get_nodes_in_group("referee")
+	
+	if referee.size() >1:
+		print("multiple referees.  Selecting card during scene switch?")
+	elif referee.size() == 1:
+		referee[0].attempt_play(self,referee[0].players[0])

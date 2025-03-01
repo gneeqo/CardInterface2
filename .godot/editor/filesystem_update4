@@ -1,10 +1,9 @@
-res://Game Logic/Scenes/main.tscn
-res://Base Objects/action.gd
-res://Game Logic/Scripts/Card Groups/deck.gd
 res://Base Objects/action.tscn
+res://Base Objects/action.gd
 res://Base Objects/action_list.tscn
 res://Base Objects/executor.tscn
 res://Game Logic/Scenes/card.tscn
+res://Game Logic/Scenes/main.tscn
 res://Behaviors/translate_out.tscn
 res://Behaviors/translate_in.tscn
 res://Game Logic/Scenes/menu.tscn
@@ -15,14 +14,11 @@ res://Behaviors/translate_in_UI.tscn
 res://Game Logic/Scenes/Play Spaces/four_players.tscn
 res://Game Logic/Scenes/Play Spaces/six_players.tscn
 res://Game Logic/Scenes/Play Spaces/two_players.tscn
-res://Game Logic/Scripts/referee.gd
-res://Factories/behavior_factory.gd
-res://Game Logic/Scripts/Card Groups/card_group.gd
 res://Game Logic/Scripts/card.gd
-res://Actions/fade.gd
-res://Game Logic/Scripts/card_player.gd
 res://Game Logic/Scripts/Card Groups/hand.gd
+res://Game Logic/Scripts/referee.gd
+res://Game Logic/Scripts/Card Groups/card_group.gd
+res://Base Objects/input_processor.gd
 res://Factories/action_factory.gd
-res://Actions/rotate.gd
-res://Game Logic/Scripts/Card Groups/pile.gd
-res://Game Logic/Scripts/Card Groups/trick.gd
+res://Factories/behavior_factory.gd
+res://Base Objects/executor.gd

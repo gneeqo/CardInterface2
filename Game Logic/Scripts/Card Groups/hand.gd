@@ -8,6 +8,9 @@ func _ready():
 
 func receive_card(payload:Card):
 	payload.owning_player = owning_player
+	if owning_player.is_human:
+		payload.isClickable = true
+	
 	super.receive_card(payload)
 	
 func _new_card_offset()->Vector2:
@@ -19,3 +22,8 @@ func _new_card_offset()->Vector2:
 
 func _new_card_rotation()->float:
 	return global_rotation
+	
+func send_card(payload:Card,target:CardGroup):
+	if owning_player.is_human:
+		payload.isClickable = true
+	super.send_card(payload,target)

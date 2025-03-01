@@ -9,11 +9,12 @@ static var mouse_just_pressed = false
 static var mouse_down = false
 static var escape_just_pressed = false
 
-
-
 static var mouse_pos:Vector2
 
 static var current_time_scale_index : int = 1
+
+
+
 
 static var time_scale : float :
 	get:
@@ -60,8 +61,3 @@ func automate_input():
 	for node in get_tree().get_nodes_in_group("auto_clickable"):
 			if(rng.randf_range(0,10) >5):
 				node.auto_press()
-	
-	
-	if menu_automating:
-		if(rng.randf_range(0,10) >5):
-			escape_just_pressed = true

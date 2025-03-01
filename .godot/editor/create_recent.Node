@@ -1,3 +1,4 @@
+AutomatedButton
 Node2D
 Pile
 Hand
@@ -8,8 +9,6 @@ CardPlayer
 CardGroup
 Sprite2D
 OptionButton
-AutomatedButton
 Callback
 Control
 Destroy
-Translate
