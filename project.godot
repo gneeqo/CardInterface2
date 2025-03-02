@@ -25,6 +25,8 @@ action=""
 auto_clickable="can be clicked by input automation"
 auto_selectable="can have options selected by input automation"
 referee=""
+resume_button=""
+InputProcessor=""
 
 [input]
 

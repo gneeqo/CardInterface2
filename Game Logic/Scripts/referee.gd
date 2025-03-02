@@ -2,7 +2,10 @@ class_name Referee extends Node
 
 @export var players : Array[CardPlayer]
 @export var deck : Deck
-@export var hand_size : int = 1
+
+static var hand_size:int = 13
+
+
 @export var deal_delay : float = 0.3
 @export var trick : Trick
 
@@ -11,6 +14,8 @@ var starting_player_index = 0
 var turn_index : int = -1
 
 var tricks_taken : int = 0
+
+var auto_start = true
 
 var active_player:CardPlayer:
 	get:
@@ -28,14 +33,12 @@ func _on_button_pressed() -> void:
 
 
 func _process(_dt:float)->void:
-	pass
-	#doing this in process so it will start when the final card arrives
-	#if trick.cards_in_group.size() == players.size():
-		#if turn_index == -1:
-			#evaluate_trick()
-		#else:
-			#print("trick is full but the turn cycle isn't over!")
-			#breakpoint
+	if auto_start:
+		if InputProcessor.automating:
+			var loader : LevelLoader = get_node("/root/Root/LevelLoader")
+			if loader.level_done_loading:
+				deal_hand_to_players()
+				auto_start = false
 
 
 
@@ -137,18 +140,20 @@ func end_round(receiving_signal:Signal):
 	for connection:Dictionary in receiving_signal.get_connections():
 		if connection["callable"].get_method() == "end_round":
 			connection["signal"].disconnect(connection["callable"])
-	if deck.cards_in_group.size() >0:
-		deal_hand_to_players()
-		var delay_time = deal_delay*players.size()*hand_size + deal_delay*hand_size
-		add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time))
-	else:
-		end_game()
+	
+	deal_hand_to_players()
 		
 func end_game():
 	pass
 
 
 func deal_hand_to_players():
+	if(hand_size > deck.cards_in_group.size()*players.size()):
+		end_game()
+	else:
+		var delay_time = deal_delay*players.size()*hand_size + deal_delay*hand_size
+		add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time))
+	
 	#do this once for each hand size
 	for index in hand_size:
 		var function = Callable(self,"deal_one_to_players")

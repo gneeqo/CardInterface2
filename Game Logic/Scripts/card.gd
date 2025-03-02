@@ -142,9 +142,11 @@ func _on_area_2d_mouse_exited() -> void:
 		moused_over = false
 
 
-func auto_press():
+func auto_press()->bool:
 	if isClickable:
 		on_pressed()
+		return true
+	return false
 
 func on_pressed() -> void:
 	var referee = get_tree().get_nodes_in_group("referee")

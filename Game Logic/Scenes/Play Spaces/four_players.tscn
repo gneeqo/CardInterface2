@@ -13,7 +13,6 @@
 script = ExtResource("1_mp7p4")
 players = [NodePath("../P1"), NodePath("../P2"), NodePath("../P3"), NodePath("../P4")]
 deck = NodePath("../Deck")
-hand_size = 4
 deal_delay = 0.2
 trick = NodePath("../Trick")
 metadata/_custom_type_script = "uid://duix2ylp10g3r"

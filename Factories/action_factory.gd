@@ -38,11 +38,11 @@ eased:bool = true, ease_type:Action.EaseType = Action.EaseType.easeInOutSine,\
 	
 static func fade(opacity:float,duration:float,\
 eased:bool = true, ease_type:Action.EaseType = Action.EaseType.easeInOutSine,\
- drift:float = 0 ,blocking:bool = false,looping:bool = false, oscillating:bool = false)->Fade:
+  blocking:bool = false,looping:bool = false, oscillating:bool = false)->Fade:
 	var newAction = Fade.new()
 	
 	newAction.target_opacity = opacity
-	newAction.drift = drift
+	
 	newAction.duration = duration
 	newAction.eased = eased
 	newAction.ease_type = ease_type

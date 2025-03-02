@@ -56,6 +56,7 @@ func load_main_menu():
 	
 	behavior.provide_callback(Callable(self,"set_menu_done_moving"))
 	
+	
 	menu_node = main_menu.instantiate()
 	get_tree().root.add_child(menu_node)
 

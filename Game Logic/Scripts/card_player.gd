@@ -26,8 +26,13 @@ func take_turn():
 
 #humans take their turn by clicking on cards
 func take_turn_human():
-	pass
+	if InputProcessor.automating:
+		take_turn_automated()
+
+func take_turn_automated():
+	InputProcessor.playing_allowed = true
 	
+
 #this is where enemy AI would go.
 func take_turn_AI():
 	referee.attempt_play(hand.random_card(),self)

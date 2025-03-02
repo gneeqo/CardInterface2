@@ -7,7 +7,6 @@ var initial_position
 var mouse_position : Vector2
 
 var final_target : Vector2
-	
 
 
 func _begin_action():
