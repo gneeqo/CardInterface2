@@ -14,6 +14,8 @@ static var mouse_pos:Vector2
 static var current_time_scale_index : int = 1
 
 static var playing_allowed = false
+static var menuing_allowed = false
+
 
 static var card_finished_playing_signal
 
@@ -28,14 +30,8 @@ static var time_scale : float :
 func _process(_dt:float):
 	
 	if(Input.is_action_just_pressed("Automate")):
-		if automating:
-			if not menu_automating:
-				menu_automating = true
-			else:
-				menu_automating = false
-				automating = false
-		else:
-			automating = true
+		automating = !automating
+		menu_automating = automating
 		
 	if automating:
 		mouse_just_pressed = false
@@ -44,12 +40,10 @@ func _process(_dt:float):
 		escape_just_pressed = false
 		
 		if(playing_allowed):
-			if menu_automating:
-				take_turn()
-			else:
-				play_card()
-				playing_allowed = false
-		
+			play_card()
+			playing_allowed = false
+		if(menuing_allowed):
+			take_turn()
 		
 	else:
 		time_scale = 1
@@ -73,7 +67,7 @@ func play_card():
 						break
 
 func take_turn():
-	playing_allowed = false
+	menuing_allowed = false
 	open_menu()
 	var use_menu = BehaviorFactory.delayed_callback(Callable(self,"select_menu_option"),2)
 	use_menu.globalList = 1
@@ -84,10 +78,13 @@ func open_menu():
 
 func select_menu_option():
 	var rng = RandomNumberGenerator.new()
-	for node in get_tree().get_nodes_in_group("auto_selectable"):
-			if(rng.randf_range(0,10) >5):
-				node.auto_select(rng.randi_range(0,node.item_count-1))
-				break
+	var option_selected = false
+	while not option_selected:
+		for node in get_tree().get_nodes_in_group("auto_selectable"):
+				if(rng.randf_range(0,10) >5):
+					node.auto_select(rng.randi_range(0,node.item_count-1))
+					option_selected = true
+					break
 	var callback_close_menu = BehaviorFactory.delayed_callback(Callable(self,"close_menu"),2)
 	callback_close_menu.globalList = 1
 	add_child(callback_close_menu)
@@ -97,5 +94,4 @@ func close_menu():
 			node.auto_press()
 	var callback_play_card = BehaviorFactory.delayed_callback(Callable(self,"play_card"),2)
 	callback_play_card.globalList = 1
-	add_child(callback_play_card)
 	

@@ -141,6 +141,7 @@ func end_round(receiving_signal:Signal):
 		if connection["callable"].get_method() == "end_round":
 			connection["signal"].disconnect(connection["callable"])
 	
+	InputProcessor.menuing_allowed = true
 	deal_hand_to_players()
 		
 func end_game():
