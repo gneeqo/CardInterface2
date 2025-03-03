@@ -19,6 +19,9 @@ func _ready():
 
 
 func take_turn():
+	if hand.cards_in_group.size() ==0:
+		print("no cards in hand.")
+		return
 	if is_human:
 		take_turn_human()
 	else:

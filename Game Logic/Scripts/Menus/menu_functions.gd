@@ -6,7 +6,7 @@ var initial_player_number_index : int
 var new_player_number_index: int
 var initial_hand_size_index:int
 
-var reload_level: bool = false
+
 
 var reload_due_to_player_num = false
 var reload_due_to_hand_size = false
@@ -16,6 +16,7 @@ func _ready():
 	level_loader = get_node("/root/Root/LevelLoader")
 	initial_play_speed_index = InputProcessor.current_time_scale_index
 	initial_player_number_index = level_loader.current_level_index
+	initial_hand_size_index = Referee.hand_size
 	
 
 
@@ -27,8 +28,10 @@ func _on_quit_pressed() -> void:
 
 func _on_resume_self_pressed() -> void:
 	if level_loader.menu_done_moving:
-		if reload_due_to_hand_size or reload_due_to_player_num:
+		if reload_due_to_hand_size or reload_due_to_player_num or InputProcessor.requrire_level_reload:
 			level_loader.load_scene_at_index(new_player_number_index)
+			InputProcessor.requrire_level_reload = false
+		
 		level_loader.dispose_main_menu()
 	
 
@@ -66,7 +69,7 @@ func _on_card_num_self_selected_item(index: int) -> void:
 			Referee.hand_size = 13
 		1:
 			Referee.hand_size = 6
-	if index != initial_player_number_index:
+	if index != initial_hand_size_index:
 		reload_due_to_hand_size = true
 		var fade_in = BehaviorFactory.fade(1,0.2)
 		fade_in.globalList = 1

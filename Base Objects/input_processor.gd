@@ -15,7 +15,7 @@ static var current_time_scale_index : int = 1
 
 static var playing_allowed = false
 static var menuing_allowed = false
-
+static var requrire_level_reload = false
 
 static var card_finished_playing_signal
 
@@ -23,7 +23,7 @@ static var card_finished_playing_signal
 static var time_scale : float :
 	get:
 		if automating:
-			return 5.0
+			return 15
 		return time_scales[current_time_scale_index]
 
 
@@ -59,12 +59,24 @@ func _process(_dt:float):
 func play_card():
 	var rng = RandomNumberGenerator.new()
 	var card_played:bool = false
+	var times_looped = 0
+	
 	while not card_played:
-		for node in get_tree().get_nodes_in_group("auto_clickable"):
+		var auto_clickable = get_tree().get_nodes_in_group("auto_clickable")
+		if(auto_clickable.size() ==0):
+			break
+		for node in auto_clickable:
 				if(rng.randf_range(0,10) >5):
 					if(node.auto_press()):
 						card_played = true
 						break
+					else:
+						times_looped +=1
+						if times_looped > 100:
+							menuing_allowed = true
+							requrire_level_reload = true
+							print("automation got stuck trying to play a card.")
+							return
 
 func take_turn():
 	menuing_allowed = false
@@ -79,19 +91,29 @@ func open_menu():
 func select_menu_option():
 	var rng = RandomNumberGenerator.new()
 	var option_selected = false
+	var times_looped = 0
 	while not option_selected:
-		for node in get_tree().get_nodes_in_group("auto_selectable"):
+		var auto_selectable =  get_tree().get_nodes_in_group("auto_selectable")
+		if(auto_selectable.size() == 0):
+			break
+		for node in auto_selectable:
 				if(rng.randf_range(0,10) >5):
 					node.auto_select(rng.randi_range(0,node.item_count-1))
 					option_selected = true
 					break
-	var callback_close_menu = BehaviorFactory.delayed_callback(Callable(self,"close_menu"),2)
+		times_looped +=1
+		if times_looped > 100:
+			menuing_allowed = true
+			requrire_level_reload = true
+			print("automation got stuck trying to select a menu item.")
+			return
+	var callback_close_menu = BehaviorFactory.delayed_callback(Callable(self,"close_menu"),4)
 	callback_close_menu.globalList = 1
 	add_child(callback_close_menu)
 
 func close_menu():
 	for node in get_tree().get_nodes_in_group("resume_button"):
 			node.auto_press()
-	var callback_play_card = BehaviorFactory.delayed_callback(Callable(self,"play_card"),2)
+	var callback_play_card = BehaviorFactory.delayed_callback(Callable(self,"play_card"),4)
 	callback_play_card.globalList = 1
 	

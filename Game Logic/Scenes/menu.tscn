@@ -32,13 +32,11 @@ metadata/_custom_type_script = "uid://lr60ipim4mka"
 [node name="PlayerNumber" type="OptionButton" parent="Control/VBoxContainer" groups=["auto_selectable"]]
 layout_mode = 2
 selected = 0
-item_count = 3
+item_count = 2
 popup/item_0/text = "2 players"
 popup/item_0/id = 0
 popup/item_1/text = "4 players"
 popup/item_1/id = 1
-popup/item_2/text = "6 players"
-popup/item_2/id = 2
 script = ExtResource("3_btpsg")
 
 [node name="CardNum" type="OptionButton" parent="Control/VBoxContainer" groups=["auto_selectable"]]

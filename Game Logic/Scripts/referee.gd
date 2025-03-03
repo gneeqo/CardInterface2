@@ -34,16 +34,16 @@ func _on_button_pressed() -> void:
 
 func _process(_dt:float)->void:
 	if auto_start:
-		if InputProcessor.automating:
-			var loader : LevelLoader = get_node("/root/Root/LevelLoader")
-			if loader.level_done_loading:
-				deal_hand_to_players()
-				auto_start = false
+		var loader : LevelLoader = get_node("/root/Root/LevelLoader")
+		if loader.level_done_loading:
+			deal_hand_to_players()
+			auto_start = false
 
 
 
 
 func restart_trick(winning_card:Card):
+	print("restart_trick")
 	var destination_group = winning_card.owning_player.winnings_pile
 	#send winning cards to winner
 	while(!trick.cards_in_group.is_empty()):
@@ -61,6 +61,7 @@ func restart_trick(winning_card:Card):
 		(Callable(self,"end_round").bind(destination_group.received_card))
 
 func evaluate_trick(receiving_signal:Signal):
+	print("evaluate_trick")
 	#don't trigger this again until reconnected
 	for connection:Dictionary in receiving_signal.get_connections():
 		if connection["callable"].get_method() == "evaluate_trick":
@@ -91,6 +92,7 @@ func evaluate_trick(receiving_signal:Signal):
 		
 
 func attempt_play(card:Card, player:CardPlayer)->void:
+	print("attempt_play")
 	if turn_index == -1:
 		print("playing not allowed right now.")
 		return
@@ -116,6 +118,7 @@ func attempt_play(card:Card, player:CardPlayer)->void:
 	
 	
 func next_trick(receiving_signal : Signal):
+	print("next_trick")
 	#don't trigger this again until reconnected
 	for connection:Dictionary in receiving_signal.get_connections():
 		if connection["callable"].get_method() == "next_trick":
@@ -124,10 +127,15 @@ func next_trick(receiving_signal : Signal):
 	turn_index = 0
 	starting_player_index = (starting_player_index+1)%(players.size())
 	
+	if active_player.hand.cards_in_group.size() ==0:
+		breakpoint
+	
+	
 	active_player.take_turn()
 	
 
 func advance_trick(receiving_signal:Signal):
+	print("advance_trick")
 	#don't trigger this again until reconnected
 	for connection:Dictionary in receiving_signal.get_connections():
 		if connection["callable"].get_method() == "advance_trick":
@@ -136,6 +144,7 @@ func advance_trick(receiving_signal:Signal):
 		active_player.take_turn()
 	
 func end_round(receiving_signal:Signal):
+	print("end_round")
 	#don't trigger this again until reconnected
 	for connection:Dictionary in receiving_signal.get_connections():
 		if connection["callable"].get_method() == "end_round":
@@ -145,12 +154,18 @@ func end_round(receiving_signal:Signal):
 	deal_hand_to_players()
 		
 func end_game():
-	pass
-
+	print("end_game")
+	var level_loader : LevelLoader = get_node("/root/Root/LevelLoader")
+	if InputProcessor.automating:
+		InputProcessor.menuing_allowed = true
+		InputProcessor.requrire_level_reload = true
+	else:
+		level_loader.load_main_menu()
 
 func deal_hand_to_players():
-	if(hand_size > deck.cards_in_group.size()*players.size()):
+	if(deck.cards_in_group.size()< hand_size*players.size()):
 		end_game()
+		return
 	else:
 		var delay_time = deal_delay*players.size()*hand_size + deal_delay*hand_size
 		add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time))
@@ -175,8 +190,10 @@ func deal_one_card(player:CardPlayer):
 		deck.send_card(deck.top_card(),player.hand)
 	else:
 		print("not enough cards in the deck!")
+		end_game()
 
 
 func start_play() -> void:
+	print("start_play")
 	turn_index = 0
 	active_player.take_turn()

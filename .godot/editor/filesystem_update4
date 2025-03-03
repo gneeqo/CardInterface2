@@ -15,11 +15,5 @@ res://Game Logic/Scenes/Play Spaces/four_players.tscn
 res://Game Logic/Scenes/Play Spaces/six_players.tscn
 res://Game Logic/Scenes/Play Spaces/two_players.tscn
 res://Game Logic/Scripts/card_player.gd
-res://Base Objects/input_processor.gd
-res://Game Logic/Scripts/Menus/menu_functions.gd
 res://Game Logic/Scripts/referee.gd
-res://Game Logic/Scripts/Menus/automated_option_button.gd
-res://Base Objects/level_loader.gd
-res://Actions/translate_to_mouse.gd
-res://Game Logic/Scripts/card.gd
-res://Factories/action_factory.gd
+res://Game Logic/Scripts/Menus/menu_functions.gd
