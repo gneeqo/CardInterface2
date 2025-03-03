@@ -162,7 +162,7 @@ func verify()->bool:
 	#flags and variables are valid
 	return true
 	
-	
+	#create a deep copy of this object
 func _clone()->Action:
 	var newAction : Action = new()
 	newAction.duration = duration

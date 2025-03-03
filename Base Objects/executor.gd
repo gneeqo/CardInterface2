@@ -1,7 +1,10 @@
 class_name Executor extends Node
 ##base Executor class.
+## most of this isn't used in the card game.
 
+#when UI space or World space are paused, actions under this executor will pause.
 @export_enum("World Space","UI space") var globalList : int
+
 ##Should this executor restart when all its actions are finished?
 @export var loops : bool = false
 
@@ -36,7 +39,9 @@ var self_clone : Executor
 
 var initialized = false
 
-
+#if the action list has a callback action, provide it with a function.
+#don't use this, use BehaviorFactory.add_callback instead.
+#not deleting because I probably use this somewhere.
 func provide_callback(callback : Callable):
 	var children = get_children()
 	for child in children:
@@ -44,7 +49,7 @@ func provide_callback(callback : Callable):
 			child.function = callback
 
 	
-
+#read the parent and children to set up the list.
 func initialize_by_parent():
 	if get_parent() == null :
 		pass
@@ -86,12 +91,13 @@ func initialize_by_parent():
 	
 	initialized = true
 	
-
+#instead of using parents, use saved clone values
 func initialize_by_clone():
 	if loops or resettable:
 		copy_executor()
 	initialized = true
 
+#set up the clone and then delete this one
 func reset_executor():
 	get_parent().add_child(self_clone)
 	self_clone.initialize_by_clone()
@@ -100,7 +106,7 @@ func reset_executor():
 	pause()
 	queue_free()
 	
-
+#make a deep copy of this object
 func _clone()->Executor:
 	var new_executor:Executor = new()
 	for list in lists:
@@ -113,7 +119,7 @@ func _clone()->Executor:
 	return new_executor
 	
 			
-
+#save a deep copy
 func copy_executor():
 	self_clone = _clone()
 			

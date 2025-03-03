@@ -1,5 +1,5 @@
 class_name AutomatedOptionButton extends OptionButton
-
+##selector that hooks into automation
 signal self_selected_item(index:int)
 signal self_pressed()
 

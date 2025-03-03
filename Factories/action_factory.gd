@@ -1,5 +1,5 @@
 class_name ActionFactory extends Node
-
+##for creating actions via code
 
 
 static func translate_to(location:Vector2,duration:float,\

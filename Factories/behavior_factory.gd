@@ -1,4 +1,5 @@
 class_name BehaviorFactory extends Node
+##for creating executors via code
 
 static func translate_then_callback(function:Callable,location:Vector2, duration:float , drift:float = 0 ,\
  eased:bool = true, ease_type:Action.EaseType = Action.EaseType.easeInOutSine) -> Executor:

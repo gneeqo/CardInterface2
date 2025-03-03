@@ -61,7 +61,8 @@ func destroy_list():
 			break		
 	queue_free()
 	
-				
+#create a deep copy of this object
+#including deep copies of the contained actions		
 func _clone() -> ActionList :
 	var newActionList : ActionList = new()
 	for action in actions:

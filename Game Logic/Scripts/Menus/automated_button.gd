@@ -1,5 +1,5 @@
 class_name AutomatedButton extends Button
-
+##button that hooks into automation
 signal self_pressed
 
 func _ready():

@@ -1,4 +1,6 @@
 class_name Referee extends Node
+##manages the game logic
+
 
 @export var players : Array[CardPlayer]
 @export var deck : Deck
@@ -17,6 +19,7 @@ var tricks_taken : int = 0
 
 var auto_start = true
 
+#take turns based on turn_index-
 var active_player:CardPlayer:
 	get:
 		return players[(starting_player_index + turn_index) % (players.size())]
@@ -26,16 +29,18 @@ func _ready():
 	add_to_group("referee",true)
 	deck.spawn_cards()
 
+#debug button (removed)
 func _on_button_pressed() -> void:
 	deal_hand_to_players()
 	var delay_time = deal_delay*players.size()*hand_size +  deal_delay*hand_size
 	add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time))
 
-
+#if auto_start is set from outside, begin the game
 func _process(_dt:float)->void:
 	if auto_start:
 		var loader : LevelLoader = get_node("/root/Root/LevelLoader")
 		if loader.level_done_loading:
+			#don't start before level is done moving onscreen
 			deal_hand_to_players()
 			auto_start = false
 
@@ -160,7 +165,8 @@ func end_game():
 		InputProcessor.menuing_allowed = true
 		InputProcessor.requrire_level_reload = true
 	else:
-		level_loader.load_main_menu()
+		#pull up end screen
+		level_loader.load_game_over()
 
 func deal_hand_to_players():
 	if(deck.cards_in_group.size()< hand_size*players.size()):

@@ -17,24 +17,6 @@ deal_delay = 0.2
 trick = NodePath("../Trick")
 metadata/_custom_type_script = "uid://duix2ylp10g3r"
 
-[node name="Button" type="Button" parent="referee"]
-offset_left = 97.0
-offset_top = 53.0
-offset_right = 186.0
-offset_bottom = 84.0
-text = "Deal Hand
-"
-metadata/_edit_use_anchors_ = true
-
-[node name="advance trick" type="Button" parent="referee"]
-offset_left = 96.0
-offset_top = 96.0
-offset_right = 185.0
-offset_bottom = 127.0
-text = "advance trick
-"
-metadata/_edit_use_anchors_ = true
-
 [node name="Deck" type="Node2D" parent="."]
 position = Vector2(128, 512)
 script = ExtResource("2_rfg22")
@@ -87,6 +69,3 @@ position = Vector2(0, 64)
 [node name="Anchor2" type="Node2D" parent="Trick"]
 position = Vector2(0, -64)
 rotation = 3.14159
-
-[connection signal="pressed" from="referee/Button" to="referee" method="_on_button_pressed"]
-[connection signal="pressed" from="referee/advance trick" to="referee" method="_on_advance_trick_pressed"]

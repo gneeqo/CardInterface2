@@ -1,5 +1,5 @@
 class_name GlobalExecutorList extends Node
-
+# for pausing world space actions during UI
 static var WorldSpacePaused : bool = false
 static var UISpacePaused : bool = false
 

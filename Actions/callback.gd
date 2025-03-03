@@ -1,5 +1,5 @@
 class_name Callback extends Action
-
+##calls function at end of action
 var function : Callable
 
 func _end_action():

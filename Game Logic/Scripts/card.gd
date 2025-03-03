@@ -1,53 +1,62 @@
 class_name Card extends Node2D
-
+##game pieces
 
 var isClickable:bool = false
 var moused_over: bool = false
 
 enum Suits {spades, clubs, hearts, diamonds}
 
-
+#update the image when you set the suit
 var suit:Suits:
 	set(newSuit):
 		suit = newSuit
 		update_image()
-		
+
+#update the image when you set the v alue
 var value:int:
 	set(newValue):
 		value = newValue
 		update_image()
 		
 
+#static so they only load once
 static var spade_tex:Array[Texture2D]
 static var clubs_tex:Array[Texture2D]
 static var hearts_tex:Array[Texture2D]
 static var diamonds_tex:Array[Texture2D]
 
+#array holding the arrays
 static var textures:Array[Array]
 
 var owning_group : CardGroup
 var owning_player : CardPlayer
 
+#unused, but I thought it might be helpful
 var in_transit : bool = false
+
+#how fast they move
 var travel_duration : float = 1.0
 
+#if the scale is negative, it's face down.
 var face_up : bool :
 	get:
 		if (scale.x <0 ||scale.y < 0):
 			return false
 		return true
 
-
+#constructor
 static func create(new_value:int,new_suit:Suits) ->Card:
 	var this_script : PackedScene = load("res://Game Logic/Scenes/card.tscn")
 	var new_card:Card = this_script.instantiate()
 	new_card.suit = new_suit
 	new_card.value = new_value
+	#start face down
 	new_card.scale = Vector2(-1,1)
 	
 	return new_card
 	
 func _ready():
+	#auto clickable so automation can play it
 	add_to_group("auto_clickable",true)
 	
 func send_to(target:CardGroup):
@@ -69,6 +78,8 @@ func send_to(target:CardGroup):
 	var midway_function = set_z.bind(target.num_cards)
 	add_child(BehaviorFactory.delayed_callback(midway_function, travel_duration / 2))
 	
+	
+	#match facing of the destination group
 	if face_up and not target.face_up:
 		add_child(BehaviorFactory.scale(Vector2(-1,1),travel_duration))
 	elif not face_up and target.face_up:
@@ -87,13 +98,14 @@ func send_to(target:CardGroup):
 
 
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _init():
 	textures.push_back(spade_tex)
 	textures.push_back(clubs_tex)
 	textures.push_back(hearts_tex)
 	textures.push_back(diamonds_tex)
-	
+	#load the textures
 	for i in range(0,4):
 		for j in range(1,14):
 			match i:
@@ -107,16 +119,17 @@ func _init():
 					textures[i].push_back(load("res://Assets/Sprites/Diamonds "+str(j)+".png"))
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta: float) -> void:
-	
+	#change sprite visibility based on facing
 	if(face_up):
 		$BackSprite.visible = false
 		$FrontSprite.visible = true
 	else:
 		$BackSprite.visible = true
 		$FrontSprite.visible = false
-		
+	#if clicked while moused over, attempt to play it
+	#unless automating
 	if moused_over:
 		if(InputProcessor.mouse_just_pressed and not InputProcessor.automating):
 			on_pressed()
@@ -131,17 +144,21 @@ func update_image():
 
 
 func _on_area_2d_mouse_entered() -> void:
+	#isClickable is set if it's the player's cards
 	if isClickable:
+		#slightly increase in scale
 		add_child(BehaviorFactory.scale(Vector2(1.2,1.2),0.2))
 		moused_over = true
 
 
 func _on_area_2d_mouse_exited() -> void:
+	#isClickable is set if it's the player's cards
 	if isClickable:
+		#reset scale
 		add_child(BehaviorFactory.scale(Vector2(1,1),0.3))
 		moused_over = false
 
-
+#automation hookup
 func auto_press()->bool:
 	if isClickable:
 		on_pressed()
@@ -149,8 +166,9 @@ func auto_press()->bool:
 	return false
 
 func on_pressed() -> void:
-	var referee = get_tree().get_nodes_in_group("referee")
 	
+	#try to play the card
+	var referee = get_tree().get_nodes_in_group("referee")
 	if referee.size() >1:
 		print("multiple referees.  Selecting card during scene switch?")
 	elif referee.size() == 1:
