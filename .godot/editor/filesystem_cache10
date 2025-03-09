@@ -1,14 +1,18 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1741480233
-export_presets.cfg::TextFile::-1::1741389943::0::1::::<><><>0<>0<><>::
+::res://::1741489113
+action_progress.gd::GDScript::6606747324073234859::1741483194::0::1::::ActionProgress<>ProgressBar<><>0<>0<><>::
+action_progress.tscn::PackedScene::2802293042825756533::1741485824::0::1::::<><><>0<>0<><>::uid://c1emfsvho7rg2::::res://action_progress.gd
+debug_menu.gd::GDScript::2779740643879206131::1741485820::0::1::::DebugMenu<>Control<><>0<>0<><>::
+debug_menu.tscn::PackedScene::1079117374977035761::1741485824::0::1::::<><><>0<>0<><>::uid://bfur6mfjkecnr::::res://debug_menu.gd
+export_presets.cfg::TextFile/TextFile::-1::1741389943::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::1789545551530705629::1739581842::1739581851::1::::<><><>0<>0<>3cee6d668a13b935da0a3968bd21b0a1<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://Actions/::1740986179
-callback.gd::GDScript/GDScript::8376419943039388870::1740986179::0::1::::Callback<>Action<><>0<>0<><>::
-destroy.gd::GDScript/GDScript::2692328514593716414::1740168478::0::1::::Destroy<>Action<><>0<>0<><>::
-fade.gd::GDScript/GDScript::4866553554536088033::1740359366::0::1::::Fade<>Action<><>0<>0<><>::
-rotate.gd::GDScript/GDScript::3286577372221657927::1740375468::0::1::::Rotate<>Action<><>0<>0<><>::
-scale.gd::GDScript/GDScript::71311240331756874::1740097048::0::1::::Scale<>Action<><>0<>0<><>::
-Translate.gd::GDScript/GDScript::5462160156809341914::1740331822::0::1::::Translate<>Action<><>0<>0<><>::
+::res://Actions/::1741483521
+callback.gd::GDScript::8376419943039388870::1741483462::0::1::::Callback<>Action<><>0<>0<><>::
+destroy.gd::GDScript::2692328514593716414::1741483521::0::1::::Destroy<>Action<><>0<>0<><>::
+fade.gd::GDScript::4866553554536088033::1741483462::0::1::::Fade<>Action<><>0<>0<><>::
+rotate.gd::GDScript::3286577372221657927::1741483521::0::1::::Rotate<>Action<><>0<>0<><>::
+scale.gd::GDScript::71311240331756874::1741483521::0::1::::Scale<>Action<><>0<>0<><>::
+Translate.gd::GDScript::5462160156809341914::1741483521::0::1::::Translate<>Action<><>0<>0<><>::
 translate_to_anchor.gd::GDScript/GDScript::2507631428395841350::1740095299::0::1::::TranslateToAnchor<>Action<><>0<>0<><>::
 translate_to_mouse.gd::GDScript/GDScript::8451746335754020450::1740874237::0::1::::TranslateToMouse<>Action<><>0<>0<><>::
 ::res://Assets/::1740101139
@@ -68,52 +72,52 @@ Spades 10.png::CompressedTexture2D/CompressedTexture2D::3912636990056582130::174
 Spades 11.png::CompressedTexture2D/CompressedTexture2D::1340973100682317183::1740101139::1740101139::1::::<><><>0<>0<>18ec3468d2a0d3aff48f4dff0f0dff88<>res://.godot/imported/Spades 11.png-d32b9efd8cc3785ab2275b7614b2aab2.ctex::
 Spades 12.png::CompressedTexture2D/CompressedTexture2D::4957547863098740743::1740101139::1740101139::1::::<><><>0<>0<>028946ed3801236389c7702f0a346e0a<>res://.godot/imported/Spades 12.png-8428c7bbe59734a8c6b21d9ebdc73be9.ctex::
 Spades 13.png::CompressedTexture2D/CompressedTexture2D::6382883313515197481::1740101139::1740101139::1::::<><><>0<>0<>eb3e1babf7d855b338e708636ae22bee<>res://.godot/imported/Spades 13.png-87c808ddd4894d4cecdf1bfaa523a753.ctex::
-::res://Base Objects/::1741389470
-action.gd::GDScript::7855457209509461795::1741389470::0::1::::Action<>Node<><>0<>0<><>::
-action.tscn::PackedScene::5767057643731828169::1741389470::0::1::::<><><>0<>0<><>::uid://dj6ih5254m6st::::res://Base Objects/action.gd
-action_list.gd::GDScript/GDScript::4910779005122659407::1740987091::0::1::::ActionList<>Node<><>0<>0<><>::
-action_list.tscn::PackedScene::4003629409258847948::1741389470::0::1::::<><><>0<>0<><>::uid://cb722vr7q1rwp::::res://Base Objects/action_list.gd
-executor.gd::GDScript/GDScript::6029659025302484580::1740987012::0::1::::Executor<>Node<><>0<>0<><>::
-executor.tscn::PackedScene::8214243374332468340::1741389470::0::1::::<><><>0<>0<><>::uid://cr52urkjin0hk::::res://Base Objects/executor.gd
+::res://Base Objects/::1741485823
+action.gd::GDScript::7855457209509461795::1741485015::0::1::::Action<>Node<><>0<>0<><>::
+action.tscn::PackedScene::5767057643731828169::1741485823::0::1::::<><><>0<>0<><>::uid://dj6ih5254m6st::::res://Base Objects/action.gd
+action_list.gd::GDScript::4910779005122659407::1741483118::0::1::::ActionList<>Node<><>0<>0<><>::
+action_list.tscn::PackedScene::4003629409258847948::1741485823::0::1::::<><><>0<>0<><>::uid://cb722vr7q1rwp::::res://Base Objects/action_list.gd
+executor.gd::GDScript::6029659025302484580::1741480485::0::1::::Executor<>Node<><>0<>0<><>::
+executor.tscn::PackedScene::8214243374332468340::1741485823::0::1::::<><><>0<>0<><>::uid://cr52urkjin0hk::::res://Base Objects/executor.gd
 global_executor_list.gd::GDScript/GDScript::5431996511511705097::1740987153::0::1::::GlobalExecutorList<>Node<><>0<>0<><>::
-input_processor.gd::GDScript/GDScript::2413427548418090224::1740987744::0::1::::InputProcessor<>Node<><>0<>0<><>::
-level_loader.gd::GDScript/GDScript::967771897165397733::1740988753::0::1::::LevelLoader<>Node<><>0<>0<><>::
-::res://Behaviors/::1741389470
-immediate_callback.tscn::PackedScene::340884903688338612::1741389470::0::1::::<><><>0<>0<><>::uid://drluoba4f6b71::::res://Actions/callback.gd
-translate_in.tscn::PackedScene::2507716629271879886::1741389470::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
-translate_in_UI.tscn::PackedScene::6113341189293009865::1741389470::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
-translate_out.tscn::PackedScene::4854595506910537151::1741389470::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://bemgi0ogghif3::::res://Actions/destroy.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
-translate_out_down.tscn::PackedScene::5456141886066210428::1741389470::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://bemgi0ogghif3::::res://Actions/destroy.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
-translate_out_UI.tscn::PackedScene::7967867608503413928::1741389470::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://bemgi0ogghif3::::res://Actions/destroy.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
+input_processor.gd::GDScript::2413427548418090224::1741485793::0::1::::InputProcessor<>Node<><>0<>0<><>::
+level_loader.gd::GDScript::967771897165397733::1741480485::0::1::::LevelLoader<>Node<><>0<>0<><>::
+::res://Behaviors/::1741485823
+immediate_callback.tscn::PackedScene::340884903688338612::1741485823::0::1::::<><><>0<>0<><>::uid://drluoba4f6b71::::res://Actions/callback.gd
+translate_in.tscn::PackedScene::2507716629271879886::1741485823::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
+translate_in_UI.tscn::PackedScene::6113341189293009865::1741485823::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
+translate_out.tscn::PackedScene::4854595506910537151::1741485823::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://bemgi0ogghif3::::res://Actions/destroy.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
+translate_out_down.tscn::PackedScene::5456141886066210428::1741485823::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://bemgi0ogghif3::::res://Actions/destroy.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
+translate_out_UI.tscn::PackedScene::7967867608503413928::1741485823::0::1::::<><><>0<>0<><>::uid://b4lvd7lh6bymw::::res://Executors/exec_auto_activate.gd<>uid://cj258kueu8ura::::res://Actions/Translate.gd<>uid://bemgi0ogghif3::::res://Actions/destroy.gd<>uid://drluoba4f6b71::::res://Actions/callback.gd
 ::res://Executors/::1740097576
 exec_auto_activate.gd::GDScript/GDScript::4445887416820103206::1739756290::0::1::::ExecAutoActivate<>Executor<><>0<>0<><>::
 exec_mouse_clicked.gd::GDScript/GDScript::2374287438383372036::1740094816::0::1::::ExecMouseClicked<>Executor<><>0<>0<><>::
 exec_mouse_held.gd::GDScript/GDScript::3366521492011074992::1739760638::0::1::::ExecMouseHeld<>Executor<><>0<>0<><>::
 exec_on_collide.gd::GDScript/GDScript::669613231666669316::1740096150::0::1::::ExecCollide<>Executor<><>0<>0<><>::
-::res://Factories/::1740986167
+::res://Factories/::1741480485
 action_factory.gd::GDScript/GDScript::8564935097691519285::1740986113::0::1::::ActionFactory<>Node<><>0<>0<><>::
-behavior_factory.gd::GDScript/GDScript::1094473878763621887::1740986167::0::1::::BehaviorFactory<>Node<><>0<>0<><>::
+behavior_factory.gd::GDScript::1094473878763621887::1741480485::0::1::::BehaviorFactory<>Node<><>0<>0<><>::
 ::res://Game Logic/::1740101251
-::res://Game Logic/Scenes/::1741389471
-card.tscn::PackedScene::402624256930485961::1741389470::0::1::::<><><>0<>0<><>::uid://dx3kirbvfy2ca::::res://Game Logic/Scripts/card.gd<>uid://ddm0k0g3udx3j::::res://Assets/Sprites/Clubs 1.png<>uid://cgnfqswwm5hq::::res://Assets/Sprites/Card Back 1.png
-gameover.tscn::PackedScene::1693103790350574458::1741389471::0::1::::<><><>0<>0<><>::uid://boe6wblo1gm1k::::res://Game Logic/Scripts/Menus/menu_functions.gd<>uid://lr60ipim4mka::::res://Game Logic/Scripts/Menus/automated_button.gd<>uid://b4fp3fw8l5mpo::::res://Game Logic/Scripts/Menus/automated_option_button.gd
-main.tscn::PackedScene::5380184173938791965::1741389470::0::1::::<><><>0<>0<><>::uid://banc2f1p3qdjs::::res://Base Objects/input_processor.gd<>uid://cjnkgonktgaqj::::res://Base Objects/global_executor_list.gd<>uid://n12cdne363o8::::res://Base Objects/level_loader.gd<>uid://bsibegt71rbqt::::res://Game Logic/Scenes/Play Spaces/two_players.tscn<>uid://l4qt2sjtnb42::::res://Game Logic/Scenes/Play Spaces/four_players.tscn<>uid://c2awiqacmo8ob::::res://Game Logic/Scenes/Play Spaces/six_players.tscn<>uid://muys6dk2o42v::::res://Game Logic/Scenes/menu.tscn<>uid://yeff35x84jws::::res://Game Logic/Scenes/gameover.tscn
-menu.tscn::PackedScene::885044664203555135::1741389470::0::1::::<><><>0<>0<><>::uid://boe6wblo1gm1k::::res://Game Logic/Scripts/Menus/menu_functions.gd<>uid://lr60ipim4mka::::res://Game Logic/Scripts/Menus/automated_button.gd<>uid://b4fp3fw8l5mpo::::res://Game Logic/Scripts/Menus/automated_option_button.gd
-::res://Game Logic/Scenes/Play Spaces/::1741389470
-four_players.tscn::PackedScene::832951083226301873::1741389470::0::1::::<><><>0<>0<><>::uid://duix2ylp10g3r::::res://Game Logic/Scripts/referee.gd<>uid://blir3brgd8gff::::res://Game Logic/Scripts/Card Groups/deck.gd<>uid://y2q4a2aj6rf6::::res://Game Logic/Scripts/card_player.gd<>uid://dgq8afktykbss::::res://Game Logic/Scripts/Card Groups/hand.gd<>uid://doe4nq37ji62e::::res://Game Logic/Scripts/Card Groups/trick.gd<>uid://bouxq6yh6afjh::::res://Game Logic/Scripts/Card Groups/pile.gd
-six_players.tscn::PackedScene::6669291046286275921::1741389470::0::1::::<><><>0<>0<><>::uid://duix2ylp10g3r::::res://Game Logic/Scripts/referee.gd<>uid://blir3brgd8gff::::res://Game Logic/Scripts/Card Groups/deck.gd<>uid://y2q4a2aj6rf6::::res://Game Logic/Scripts/card_player.gd<>uid://dgq8afktykbss::::res://Game Logic/Scripts/Card Groups/hand.gd<>uid://doe4nq37ji62e::::res://Game Logic/Scripts/Card Groups/trick.gd<>uid://bouxq6yh6afjh::::res://Game Logic/Scripts/Card Groups/pile.gd
-two_players.tscn::PackedScene::3666403097359281183::1741389470::0::1::::<><><>0<>0<><>::uid://duix2ylp10g3r::::res://Game Logic/Scripts/referee.gd<>uid://y2q4a2aj6rf6::::res://Game Logic/Scripts/card_player.gd<>uid://blir3brgd8gff::::res://Game Logic/Scripts/Card Groups/deck.gd<>uid://dgq8afktykbss::::res://Game Logic/Scripts/Card Groups/hand.gd<>uid://bouxq6yh6afjh::::res://Game Logic/Scripts/Card Groups/pile.gd<>uid://doe4nq37ji62e::::res://Game Logic/Scripts/Card Groups/trick.gd
-::res://Game Logic/Scripts/::1740988766
-card.gd::GDScript/GDScript::8832030383550182560::1740986489::0::1::::Card<>Node2D<><>0<>0<><>::
+::res://Game Logic/Scenes/::1741485823
+card.tscn::PackedScene::402624256930485961::1741485823::0::1::::<><><>0<>0<><>::uid://dx3kirbvfy2ca::::res://Game Logic/Scripts/card.gd<>uid://ddm0k0g3udx3j::::res://Assets/Sprites/Clubs 1.png<>uid://cgnfqswwm5hq::::res://Assets/Sprites/Card Back 1.png
+gameover.tscn::PackedScene::1693103790350574458::1741485823::0::1::::<><><>0<>0<><>::uid://boe6wblo1gm1k::::res://Game Logic/Scripts/Menus/menu_functions.gd<>uid://lr60ipim4mka::::res://Game Logic/Scripts/Menus/automated_button.gd<>uid://b4fp3fw8l5mpo::::res://Game Logic/Scripts/Menus/automated_option_button.gd
+main.tscn::PackedScene::5380184173938791965::1741485823::0::1::::<><><>0<>0<><>::uid://banc2f1p3qdjs::::res://Base Objects/input_processor.gd<>uid://cjnkgonktgaqj::::res://Base Objects/global_executor_list.gd<>uid://n12cdne363o8::::res://Base Objects/level_loader.gd<>uid://bsibegt71rbqt::::res://Game Logic/Scenes/Play Spaces/two_players.tscn<>uid://l4qt2sjtnb42::::res://Game Logic/Scenes/Play Spaces/four_players.tscn<>uid://c2awiqacmo8ob::::res://Game Logic/Scenes/Play Spaces/six_players.tscn<>uid://muys6dk2o42v::::res://Game Logic/Scenes/menu.tscn<>uid://yeff35x84jws::::res://Game Logic/Scenes/gameover.tscn<>uid://pmy5107y2im8::::res://debug_menu.tscn
+menu.tscn::PackedScene::885044664203555135::1741485823::0::1::::<><><>0<>0<><>::uid://boe6wblo1gm1k::::res://Game Logic/Scripts/Menus/menu_functions.gd<>uid://lr60ipim4mka::::res://Game Logic/Scripts/Menus/automated_button.gd<>uid://b4fp3fw8l5mpo::::res://Game Logic/Scripts/Menus/automated_option_button.gd
+::res://Game Logic/Scenes/Play Spaces/::1741485823
+four_players.tscn::PackedScene::832951083226301873::1741485823::0::1::::<><><>0<>0<><>::uid://duix2ylp10g3r::::res://Game Logic/Scripts/referee.gd<>uid://blir3brgd8gff::::res://Game Logic/Scripts/Card Groups/deck.gd<>uid://y2q4a2aj6rf6::::res://Game Logic/Scripts/card_player.gd<>uid://dgq8afktykbss::::res://Game Logic/Scripts/Card Groups/hand.gd<>uid://doe4nq37ji62e::::res://Game Logic/Scripts/Card Groups/trick.gd<>uid://bouxq6yh6afjh::::res://Game Logic/Scripts/Card Groups/pile.gd
+six_players.tscn::PackedScene::6669291046286275921::1741485823::0::1::::<><><>0<>0<><>::uid://duix2ylp10g3r::::res://Game Logic/Scripts/referee.gd<>uid://blir3brgd8gff::::res://Game Logic/Scripts/Card Groups/deck.gd<>uid://y2q4a2aj6rf6::::res://Game Logic/Scripts/card_player.gd<>uid://dgq8afktykbss::::res://Game Logic/Scripts/Card Groups/hand.gd<>uid://doe4nq37ji62e::::res://Game Logic/Scripts/Card Groups/trick.gd<>uid://bouxq6yh6afjh::::res://Game Logic/Scripts/Card Groups/pile.gd
+two_players.tscn::PackedScene::3666403097359281183::1741485823::0::1::::<><><>0<>0<><>::uid://duix2ylp10g3r::::res://Game Logic/Scripts/referee.gd<>uid://y2q4a2aj6rf6::::res://Game Logic/Scripts/card_player.gd<>uid://blir3brgd8gff::::res://Game Logic/Scripts/Card Groups/deck.gd<>uid://dgq8afktykbss::::res://Game Logic/Scripts/Card Groups/hand.gd<>uid://bouxq6yh6afjh::::res://Game Logic/Scripts/Card Groups/pile.gd<>uid://doe4nq37ji62e::::res://Game Logic/Scripts/Card Groups/trick.gd
+::res://Game Logic/Scripts/::1741480659
+card.gd::GDScript::8832030383550182560::1741480659::0::1::::Card<>Node2D<><>0<>0<><>::
 card_player.gd::GDScript/GDScript::1741293748302881109::1740986751::0::1::::CardPlayer<>Node2D<><>0<>0<><>::
-referee.gd::GDScript/GDScript::8580999931412008553::1740988766::0::1::::Referee<>Node<><>0<>0<><>::
-::res://Game Logic/Scripts/Card Groups/::1740987331
-card_group.gd::GDScript/GDScript::7338494130213656851::1740986705::0::1::::CardGroup<>Node2D<><>0<>0<><>::
+referee.gd::GDScript::8580999931412008553::1741480485::0::1::::Referee<>Node<><>0<>0<><>::
+::res://Game Logic/Scripts/Card Groups/::1741480485
+card_group.gd::GDScript::7338494130213656851::1741480485::0::1::::CardGroup<>Node2D<><>0<>0<><>::
 deck.gd::GDScript/GDScript::3176095255913253375::1740986816::0::1::::Deck<>CardGroup<><>0<>0<><>::
 hand.gd::GDScript/GDScript::7615429096694282026::1740987331::0::1::::Hand<>CardGroup<><>0<>0<><>::
 pile.gd::GDScript/GDScript::3411778778901497885::1740380986::0::1::::Pile<>CardGroup<><>0<>0<><>::
 trick.gd::GDScript/GDScript::8151948266233424486::1740381129::0::1::::Trick<>CardGroup<><>0<>0<><>::
-::res://Game Logic/Scripts/Menus/::1740988985
+::res://Game Logic/Scripts/Menus/::1741480485
 automated_button.gd::GDScript/GDScript::809099017200296044::1740986167::0::1::::AutomatedButton<>Button<><>0<>0<><>::
 automated_option_button.gd::GDScript/GDScript::4433180093204883196::1740986167::0::1::::AutomatedOptionButton<>OptionButton<><>0<>0<><>::
-menu_functions.gd::GDScript/GDScript::3379243590070751614::1740988985::0::1::::MenuFunctions<>Control<><>0<>0<><>::
+menu_functions.gd::GDScript::3379243590070751614::1741480485::0::1::::MenuFunctions<>Control<><>0<>0<><>::

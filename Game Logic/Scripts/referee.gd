@@ -100,10 +100,15 @@ func attempt_play(card:Card, player:CardPlayer)->void:
 	print("attempt_play")
 	if turn_index == -1:
 		print("playing not allowed right now.")
+		TelemetryCollector.add_event("player " +str(players.find(player))\
+		+" attempted to play card when not allowed")
 		return
 	#if the player is allowed to play, send their card to the trick
 	if player == active_player: 
 		player.hand.send_card(card,trick)
+		TelemetryCollector.add_event("player " +str(players.find(player))\
+		+ " played " + str(card.value) + " of " + Card.Suits.keys()[card.suit])
+		
 		turn_index +=1
 		
 		if turn_index == players.size():
@@ -138,6 +143,8 @@ func next_trick(receiving_signal : Signal):
 	
 	active_player.take_turn()
 	
+	TelemetryCollector.add_event("Referee called next_trick")
+	
 
 func advance_trick(receiving_signal:Signal):
 	print("advance_trick")
@@ -147,6 +154,7 @@ func advance_trick(receiving_signal:Signal):
 			connection["signal"].disconnect(connection["callable"])
 	if turn_index != -1:
 		active_player.take_turn()
+	TelemetryCollector.add_event("Referee called advance_trick")
 	
 func end_round(receiving_signal:Signal):
 	print("end_round")
@@ -155,12 +163,14 @@ func end_round(receiving_signal:Signal):
 		if connection["callable"].get_method() == "end_round":
 			connection["signal"].disconnect(connection["callable"])
 	
+	TelemetryCollector.add_event("Referee called end_round")
 	InputProcessor.menuing_allowed = true
 	deal_hand_to_players()
 		
 func end_game():
 	print("end_game")
 	var level_loader : LevelLoader = get_node("/root/Root/LevelLoader")
+	TelemetryCollector.add_event("Referee called end_game")
 	if InputProcessor.automating:
 		InputProcessor.menuing_allowed = true
 		InputProcessor.requrire_level_reload = true
@@ -176,6 +186,7 @@ func deal_hand_to_players():
 		var delay_time = deal_delay*players.size()*hand_size + deal_delay*hand_size
 		add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time),true)
 	
+	TelemetryCollector.add_event("Referee started dealing cards to players")
 	#do this once for each hand size
 	for index in hand_size:
 		var function = Callable(self,"deal_one_to_players")
@@ -201,5 +212,6 @@ func deal_one_card(player:CardPlayer):
 
 func start_play() -> void:
 	print("start_play")
+	TelemetryCollector.add_event("Referee called start_play")
 	turn_index = 0
 	active_player.take_turn()

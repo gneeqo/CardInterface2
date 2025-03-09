@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ciwg32p5fu0jx"]
+[gd_scene load_steps=11 format=3 uid="uid://ciwg32p5fu0jx"]
 
 [ext_resource type="Script" uid="uid://banc2f1p3qdjs" path="res://Base Objects/input_processor.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://cjnkgonktgaqj" path="res://Base Objects/global_executor_list.gd" id="1_lquwl"]
+[ext_resource type="Script" uid="uid://kph3r40uvxi1" path="res://telemetry_collector.gd" id="1_qhdym"]
 [ext_resource type="Script" uid="uid://n12cdne363o8" path="res://Base Objects/level_loader.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bsibegt71rbqt" path="res://Game Logic/Scenes/Play Spaces/two_players.tscn" id="4_lk2sk"]
 [ext_resource type="PackedScene" uid="uid://l4qt2sjtnb42" path="res://Game Logic/Scenes/Play Spaces/four_players.tscn" id="5_6hafu"]
@@ -11,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://pmy5107y2im8" path="res://debug_menu.tscn" id="9_5ocdf"]
 
 [node name="Root" type="Node2D"]
+
+[node name="TelemetryCollector" type="Node" parent="."]
+script = ExtResource("1_qhdym")
+metadata/_custom_type_script = "uid://kph3r40uvxi1"
 
 [node name="InputProcessor" type="Node" parent="."]
 script = ExtResource("1_1bvp3")

@@ -37,9 +37,17 @@ func _process(_dt:float):
 		#I worry that removing menu_automating will break something else
 		automating = !automating
 		menu_automating = automating
+		if(automating):
+			TelemetryCollector.start_collecting()
+		else:
+			TelemetryCollector.finish_collecting()
 		
 	if(Input.is_action_just_pressed("toggle_debug")):
 		debug_menu_open = !debug_menu_open
+		if debug_menu_open:
+			TelemetryCollector.add_event("debug menu opened")
+		else:
+			TelemetryCollector.add_event("debug menu closed")
 	
 	if automating:
 		#don't do any normal input
@@ -83,6 +91,16 @@ func play_card():
 					if(node.auto_press()):
 						card_played = true
 						#we successfully clicked something
+						var event_message:String
+						if node is Card:
+							var card = node as Card
+							event_message = "automation clicked card " + \
+							str(card.value) + " of " + Card.Suits.keys()[card.suit]
+						else:
+							event_message = "automation clicked something other than card"
+						
+						TelemetryCollector.add_event(event_message)
+						
 						break
 					else:
 						#we tried to click something, but it didn't work.
@@ -105,6 +123,7 @@ func take_turn():
 	
 func open_menu():
 	escape_just_pressed = true
+	TelemetryCollector.add_event("Menu Opened")
 
 func select_menu_option():
 	var rng = RandomNumberGenerator.new()
@@ -118,9 +137,23 @@ func select_menu_option():
 			#not allowed to select anything
 		for node in auto_selectable:
 				if(rng.randf_range(0,10) >5):
-					node.auto_select(rng.randi_range(0,node.item_count-1))
+					var option_to_select:int = rng.randi_range(0,node.item_count-1)
+					node.auto_select(option_to_select)
 					option_selected = true
 					#we selected something
+					var event_message:String
+					if node is AutomatedOptionButton:
+						var option = node as AutomatedOptionButton
+						event_message = "automation selected " + \
+						option.get_item_text(option_to_select)
+						
+					else:
+						event_message = "automation somehow selected unselectable item"
+					
+					TelemetryCollector.add_event(event_message)
+					
+					
+					
 					break
 		times_looped +=1
 		if times_looped > 100:
@@ -143,4 +176,5 @@ func close_menu():
 	var callback_play_card = BehaviorFactory.delayed_callback(Callable(self,"play_card"),4)
 	#make sure this is marked as UI space
 	callback_play_card.globalList = 1
+	TelemetryCollector.add_event("Menu Closed")
 	

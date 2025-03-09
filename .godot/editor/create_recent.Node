@@ -1,3 +1,5 @@
+TelemetryCollector
+Node
 HBoxContainer
 VBoxContainer
 BoxContainer
@@ -11,5 +13,3 @@ Node2D
 Pile
 Hand
 Trick
-Button
-Deck
