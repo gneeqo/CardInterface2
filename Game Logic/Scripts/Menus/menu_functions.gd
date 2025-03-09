@@ -10,7 +10,6 @@ var new_player_number_index: int
 var initial_hand_size_index:int
 
 
-
 var reload_due_to_player_num = false
 var reload_due_to_hand_size = false
 
@@ -29,6 +28,10 @@ func _ready():
 	else:
 		initial_hand_size_index = 1
 	
+	$VBoxContainer/PlayerNumber.selected = initial_player_number_index
+	$VBoxContainer/CardNum.selected = initial_hand_size_index
+	$VBoxContainer/PlaySpeed.selected = InputProcessor.current_time_scale_index
+	$VBoxContainer/TransitionType.selected = level_loader.curr_transition
 
 
 
@@ -44,8 +47,6 @@ func _on_resume_self_pressed() -> void:
 			InputProcessor.requrire_level_reload = false
 		
 		level_loader.dispose_main_menu()
-	
-
 
 #change the player number
 func _on_player_number_self_selected_item(index: int) -> void:
@@ -64,8 +65,6 @@ func _on_player_number_self_selected_item(index: int) -> void:
 			var fade_out = BehaviorFactory.fade(0,0.2)
 			fade_out.globalList = 1
 			$ReloadWarning.add_child(fade_out,true)
-
-
 
 
 func _on_play_speed_self_selected_item(index: int) -> void:
@@ -92,3 +91,7 @@ func _on_card_num_self_selected_item(index: int) -> void:
 			var fade_out = BehaviorFactory.fade(0,0.2)
 			fade_out.globalList = 1
 			$ReloadWarning.add_child(fade_out,true)
+
+
+func _on_transition_type_self_selected_item(index: int) -> void:
+	level_loader.curr_transition = index as LevelLoader.TransitionType

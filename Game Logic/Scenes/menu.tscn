@@ -50,7 +50,6 @@ metadata/_custom_type_script = "uid://b4fp3fw8l5mpo"
 
 [node name="PlaySpeed" type="OptionButton" parent="Control/VBoxContainer"]
 layout_mode = 2
-selected = 1
 item_count = 4
 popup/item_0/text = "Slow"
 popup/item_0/id = 0
@@ -59,6 +58,19 @@ popup/item_1/id = 1
 popup/item_2/text = "Fast"
 popup/item_2/id = 2
 popup/item_3/text = "Lightning"
+popup/item_3/id = 3
+script = ExtResource("3_btpsg")
+
+[node name="TransitionType" type="OptionButton" parent="Control/VBoxContainer" groups=["auto_selectable"]]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "Slide Left"
+popup/item_0/id = 0
+popup/item_1/text = "Slide Right"
+popup/item_1/id = 1
+popup/item_2/text = "Fade"
+popup/item_2/id = 2
+popup/item_3/text = "Shrink"
 popup/item_3/id = 3
 script = ExtResource("3_btpsg")
 
@@ -88,4 +100,8 @@ fit_content = true
 [connection signal="self_pressed" from="Control/VBoxContainer/PlaySpeed" to="Control" method="_on_play_speed_self_pressed"]
 [connection signal="self_selected_item" from="Control/VBoxContainer/PlaySpeed" to="Control" method="_on_play_speed_self_selected_item"]
 [connection signal="toggled" from="Control/VBoxContainer/PlaySpeed" to="Control/VBoxContainer/PlaySpeed" method="_on_toggled"]
+[connection signal="item_selected" from="Control/VBoxContainer/TransitionType" to="Control/VBoxContainer/TransitionType" method="_on_item_selected"]
+[connection signal="self_pressed" from="Control/VBoxContainer/TransitionType" to="Control" method="_on_transition_type_self_pressed"]
+[connection signal="self_selected_item" from="Control/VBoxContainer/TransitionType" to="Control" method="_on_transition_type_self_selected_item"]
+[connection signal="toggled" from="Control/VBoxContainer/TransitionType" to="Control/VBoxContainer/TransitionType" method="_on_toggled"]
 [connection signal="pressed" from="Control/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]

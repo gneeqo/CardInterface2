@@ -1,7 +1,3 @@
-res://Game Logic/Scenes/menu.tscn
-res://Base Objects/action.gd
-res://telemetry_collector.gd
-res://Base Objects/input_processor.gd
 res://Base Objects/action.tscn
 res://Base Objects/action_list.tscn
 res://Base Objects/executor.tscn
@@ -9,6 +5,7 @@ res://Game Logic/Scenes/card.tscn
 res://Game Logic/Scenes/main.tscn
 res://Behaviors/translate_out.tscn
 res://Behaviors/translate_in.tscn
+res://Game Logic/Scenes/menu.tscn
 res://Behaviors/translate_out_down.tscn
 res://Behaviors/immediate_callback.tscn
 res://Behaviors/translate_out_UI.tscn
@@ -17,11 +14,16 @@ res://Game Logic/Scenes/Play Spaces/four_players.tscn
 res://Game Logic/Scenes/Play Spaces/six_players.tscn
 res://Game Logic/Scenes/Play Spaces/two_players.tscn
 res://Game Logic/Scenes/gameover.tscn
-res://debug_menu.tscn
-res://action_progress.tscn
-res://debug_menu.gd
-res://Game Logic/Scripts/referee.gd
-res://Game Logic/Scripts/Card Groups/card_group.gd
 res://Debug/debug_menu.tscn
 res://Debug/action_progress.tscn
+res://Behaviors/fade_in_UI.tscn
+res://Behaviors/fade_out_UI.tscn
+res://Behaviors/slide_left_in_UI.tscn
 res://Base Objects/level_loader.gd
+res://Behaviors/slide_right_out.tscn
+res://Behaviors/slide_right_in_UI.tscn
+res://Behaviors/slide_left_out_UI.tscn
+res://Behaviors/spiral_in_UI.tscn
+res://Behaviors/spiral_out_UI.tscn
+res://Behaviors/shrink_in_UI.tscn
+res://Behaviors/shrink_out_UI.tscn

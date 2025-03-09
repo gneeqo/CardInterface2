@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bemgi0ogghif3" path="res://Actions/destroy.gd" id="3_r7i1g"]
 [ext_resource type="Script" uid="uid://drluoba4f6b71" path="res://Actions/callback.gd" id="4_7shhr"]
 
-[node name="TranslateOut" type="Node"]
+[node name="SlideLeftOut" type="Node"]
 script = ExtResource("1_8b4kl")
 globalList = 1
 metadata/_custom_type_script = "uid://b4lvd7lh6bymw"
@@ -13,7 +13,8 @@ metadata/_custom_type_script = "uid://b4lvd7lh6bymw"
 [node name="Translate" type="Node" parent="."]
 script = ExtResource("2_c6t05")
 target = Vector2(-1500, 100)
-duration = 3.0
+drift = 500.0
+duration = 1.0
 blocking = true
 eased = true
 metadata/_custom_type_script = "uid://cj258kueu8ura"

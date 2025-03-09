@@ -169,8 +169,16 @@ func end_round(receiving_signal:Signal):
 			connection["signal"].disconnect(connection["callable"])
 	
 	TelemetryCollector.add_event("Referee","Called",get_stack()[0]["function"])
-	InputProcessor.menuing_allowed = true
-	deal_hand_to_players()
+	
+	if(deck.cards_in_group.size()< hand_size*players.size()):
+		end_game()
+		return
+	else:
+		if InputProcessor.automating:
+			InputProcessor.menuing_allowed = true
+		deal_hand_to_players()
+	
+	
 		
 func end_game():
 	print("end_game")
