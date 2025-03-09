@@ -56,14 +56,14 @@ func _on_player_number_self_selected_item(index: int) -> void:
 		reload_due_to_player_num = true
 		var fade_in = BehaviorFactory.fade(1,0.2)
 		fade_in.globalList = 1
-		$ReloadWarning.add_child(fade_in)
+		$ReloadWarning.add_child(fade_in,true)
 	else:
 		reload_due_to_player_num = false
 		if not reload_due_to_hand_size:
 			#changed back to initial value, so reload not necessary
 			var fade_out = BehaviorFactory.fade(0,0.2)
 			fade_out.globalList = 1
-			$ReloadWarning.add_child(fade_out)
+			$ReloadWarning.add_child(fade_out,true)
 
 
 
@@ -84,11 +84,11 @@ func _on_card_num_self_selected_item(index: int) -> void:
 		reload_due_to_hand_size = true
 		var fade_in = BehaviorFactory.fade(1,0.2)
 		fade_in.globalList = 1
-		$ReloadWarning.add_child(fade_in)
+		$ReloadWarning.add_child(fade_in,true)
 	else:
 		reload_due_to_hand_size = false
 		if not reload_due_to_player_num:
 			#changed back to initial value, so reload not necessary
 			var fade_out = BehaviorFactory.fade(0,0.2)
 			fade_out.globalList = 1
-			$ReloadWarning.add_child(fade_out)
+			$ReloadWarning.add_child(fade_out,true)

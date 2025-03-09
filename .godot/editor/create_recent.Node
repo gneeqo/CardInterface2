@@ -1,6 +1,10 @@
+HBoxContainer
 VBoxContainer
-ColorRect
+BoxContainer
+GridContainer
 RichTextLabel
+ProgressBar
+ColorRect
 AutomatedOptionButton
 AutomatedButton
 Node2D
@@ -9,7 +13,3 @@ Hand
 Trick
 Button
 Deck
-CardPlayer
-CardGroup
-Sprite2D
-OptionButton

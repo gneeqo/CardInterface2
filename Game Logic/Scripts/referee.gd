@@ -33,7 +33,7 @@ func _ready():
 func _on_button_pressed() -> void:
 	deal_hand_to_players()
 	var delay_time = deal_delay*players.size()*hand_size +  deal_delay*hand_size
-	add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time))
+	add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time),true)
 
 #if auto_start is set from outside, begin the game
 func _process(_dt:float)->void:
@@ -93,7 +93,7 @@ func evaluate_trick(receiving_signal:Signal):
 	BehaviorFactory.add_callback_to_behavior(restart,highlight)
 	
 	#make sure card knows to do all that
-	winning_card.add_child(highlight)
+	winning_card.add_child(highlight,true)
 		
 
 func attempt_play(card:Card, player:CardPlayer)->void:
@@ -174,7 +174,7 @@ func deal_hand_to_players():
 		return
 	else:
 		var delay_time = deal_delay*players.size()*hand_size + deal_delay*hand_size
-		add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time))
+		add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time),true)
 	
 	#do this once for each hand size
 	for index in hand_size:
@@ -182,14 +182,14 @@ func deal_hand_to_players():
 		#delay * index = delay longer for which card in the hand are we on
 		#delay * index * player num = delay longer for how many players
 		#so that the cards are dealt sequentially
-		add_child(BehaviorFactory.delayed_callback(function,0.01 + (deal_delay*index*players.size())))
+		add_child(BehaviorFactory.delayed_callback(function,0.01 + (deal_delay*index*players.size())),true)
 
 func deal_one_to_players():
 	#deal one card to each player
 	for index in players.size():
 		var function = Callable(self,"deal_one_card").bind(players[index])
 		#delay*index = each player gets their cards in order
-		add_child(BehaviorFactory.delayed_callback(function,0.01 + (deal_delay*index)))
+		add_child(BehaviorFactory.delayed_callback(function,0.01 + (deal_delay*index)),true)
 
 func deal_one_card(player:CardPlayer):
 	if deck.cards_in_group.size() > 0:

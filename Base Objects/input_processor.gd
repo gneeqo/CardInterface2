@@ -96,7 +96,7 @@ func take_turn():
 	var use_menu = BehaviorFactory.delayed_callback(Callable(self,"select_menu_option"),2)
 	#make sure this action is marked as UI space
 	use_menu.globalList = 1
-	add_child(use_menu)
+	add_child(use_menu,true)
 	
 func open_menu():
 	escape_just_pressed = true
@@ -128,7 +128,7 @@ func select_menu_option():
 	var callback_close_menu = BehaviorFactory.delayed_callback(Callable(self,"close_menu"),4)
 	#make sure this is marked as UI space
 	callback_close_menu.globalList = 1
-	add_child(callback_close_menu)
+	add_child(callback_close_menu,true)
 
 func close_menu():
 	#press resume

@@ -19,6 +19,7 @@ func _begin_action():
 			,target.y + rng.randf_range(-drift,drift))
 	else:
 		final_scale = target
+	super._begin_action()
 	
 
 func _lerp_value(alpha:float):

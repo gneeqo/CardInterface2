@@ -5,6 +5,7 @@ var function : Callable
 func _end_action():
 	if function.is_valid():
 		function.call()
+	super._end_action()
 
 func _clone():
 	var new_action = super._clone()

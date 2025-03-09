@@ -99,7 +99,7 @@ func initialize_by_clone():
 
 #set up the clone and then delete this one
 func reset_executor():
-	get_parent().add_child(self_clone)
+	get_parent().add_child(self_clone,true)
 	self_clone.initialize_by_clone()
 	for list in lists:
 		list.destroy_list()

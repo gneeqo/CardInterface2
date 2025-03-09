@@ -55,6 +55,7 @@ func destroy_list():
 		for action in actions:
 			action._end_action()
 			action.queue_free()
+		
 			actions.erase(action)
 			removals_necessary -=1
 			#stop iterating since list changed

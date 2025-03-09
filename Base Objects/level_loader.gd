@@ -19,7 +19,7 @@ var current_level_index : int = 0
 func _ready():
 	var start_level = level_scenes[0].instantiate()
 	#have to call_deferred here because not all the other nodes are set up yet
-	get_tree().root.add_child.call_deferred(start_level)
+	get_tree().root.add_child.call_deferred(start_level,true)
 	active_level_root = start_level
 	
 func _process(_dt:float)->void:
@@ -37,7 +37,7 @@ func load_scene_at_index(index:int):
 		#we're not in a transition state, so we can load the new level
 		prev_level_root = active_level_root
 		active_level_root = level_scenes[index].instantiate()
-		get_tree().root.add_child(active_level_root)
+		get_tree().root.add_child(active_level_root,true)
 		
 		level_done_loading = false
 		
@@ -66,11 +66,11 @@ func load_main_menu():
 	
 	
 	menu_node = main_menu.instantiate()
-	get_tree().root.add_child(menu_node)
+	get_tree().root.add_child(menu_node,true)
 	
 	#set the menu up offscreen
 	menu_node.position = Vector2(2000,100)
-	menu_node.add_child(behavior)
+	menu_node.add_child(behavior,true)
 	menu_active = true
 	menu_done_moving = false
 	
@@ -88,11 +88,11 @@ func load_game_over():
 	
 	
 	menu_node = game_over.instantiate()
-	get_tree().root.add_child(menu_node)
+	get_tree().root.add_child(menu_node,true)
 	
 	#set the menu up offscreen
 	menu_node.position = Vector2(2000,100)
-	menu_node.add_child(behavior)
+	menu_node.add_child(behavior,true)
 	menu_active = true
 	menu_done_moving = false
 	
@@ -107,7 +107,7 @@ func dispose_main_menu():
 	behavior.provide_callback(Callable(self,"set_menu_done_moving_and_unpause"))
 	menu_active = false
 	menu_done_moving = false
-	menu_node.add_child(behavior)
+	menu_node.add_child(behavior,true)
 
 
 
@@ -118,9 +118,9 @@ func intro_scene(scene:Node2D):
 	
 	#set level up offscreen
 	scene.position = Vector2(2000,100)
-	scene.add_child(behavior)
+	scene.add_child(behavior,true)
 
 func dispose_scene(scene:Node2D):
 	#move level offscreen
 	var behavior = load("res://Behaviors/translate_out_UI.tscn").instantiate()
-	scene.add_child(behavior)
+	scene.add_child(behavior,true)

@@ -18,6 +18,7 @@ func _begin_action():
 	else:
 		final_angle = target_angle
 	
+	super._begin_action()
 
 func _lerp_value(alpha:float):
 	affected_node.global_rotation = lerp(initial_angle,final_angle,alpha)

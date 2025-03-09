@@ -46,6 +46,10 @@ var affected_node_path
 ##The node affected by this action.
 var affected_node : Node 
 
+
+
+
+
 func get_affected_node_by_path():
 	return get_node(affected_node_path)
 
@@ -88,9 +92,16 @@ var isDone : bool :
 ##Is this action ready to be cleaned up?
 var should_delete:bool = false
 
+
+var action_debug:ActionProgress
+
+var debug_menu:DebugMenu
+
 #disable processing, actions are processed only by ActionLists
+
 func _ready():
 	set_process_mode(PROCESS_MODE_DISABLED)
+	name = get_script().resource_path.get_file()
 	
 
 #modify elapsed_time based on delta time
@@ -120,9 +131,14 @@ func reset_action():
 	first_update = true
 
 	
-
+#set up debug
 func _begin_action():
-	pass
+	action_debug = load("res://action_progress.tscn").instantiate()
+	action_debug.set_action_name(name)
+	action_debug.set_affected_node_name(affected_node.name)
+	
+	debug_menu = get_node("/root/Root/DebugMenu")
+	debug_menu.add_action_debug(action_debug)
 
 ##Updsate the action.  Should only be called by [ActionList]
 func update_action(dt:float):
@@ -134,10 +150,12 @@ func update_action(dt:float):
 		_lerp_value(easedAlpha)
 	else:
 		_lerp_value(linearAlpha)
-	
+	if is_instance_valid(action_debug):
+		action_debug.update_progress( elapsed_time / duration)
 	
 func _end_action():
 	pass
+	
 
 ##Validate the existence of an affected node, if necessary.
 func check_affected_node()->bool:

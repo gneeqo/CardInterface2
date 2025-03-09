@@ -10,6 +10,7 @@ func _begin_action():
 	else:
 		print("fade action called on non-CanvasItem")
 		breakpoint
+	super._begin_action()
 
 func _lerp_value(alpha:float):
 	affected_node.modulate.a = lerp(initial_opacity,target_opacity,alpha)

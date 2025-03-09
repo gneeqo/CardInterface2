@@ -17,7 +17,7 @@ func _add_card(payload:Card):
 
 	#adopt or reparent
 	if !payload.get_parent():
-		add_child(payload)
+		add_child(payload,true)
 	else:
 		payload.reparent(self)
 		

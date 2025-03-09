@@ -16,6 +16,7 @@ func _begin_action():
 			final_target = Vector2(target.x + rng.randf_range(-drift,drift)\
 			,target.y + rng.randf_range(-drift,drift))
 	else: final_target =  target
+	super._begin_action()
 
 func _lerp_value(alpha:float):
 	affected_node.global_position = lerp(initial_position,final_target,alpha)

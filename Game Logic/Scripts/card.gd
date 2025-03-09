@@ -66,24 +66,24 @@ func send_to(target:CardGroup):
 	
 	#translate to new location, then call receiving function on card group
 	#slight drift
-	add_child(BehaviorFactory.translate_then_callback(receiving_function,target._new_card_offset(),travel_duration,1.5))
+	add_child(BehaviorFactory.translate_then_callback(receiving_function,target._new_card_offset(),travel_duration,1.5),true)
 	#rotate to new rotation along the way
 	#very slight drift
-	add_child(BehaviorFactory.rotate(target._new_card_rotation(),travel_duration))
+	add_child(BehaviorFactory.rotate(target._new_card_rotation(),travel_duration),true)
 	
 	#change z index halfway through the journey
 	#it should be equal to the order in which it was added to the group
 	var set_z = func(index):
 		set_z_index(index)
 	var midway_function = set_z.bind(target.num_cards)
-	add_child(BehaviorFactory.delayed_callback(midway_function, travel_duration / 2))
+	add_child(BehaviorFactory.delayed_callback(midway_function, travel_duration / 2),true)
 	
 	
 	#match facing of the destination group
 	if face_up and not target.face_up:
-		add_child(BehaviorFactory.scale(Vector2(-1,1),travel_duration))
+		add_child(BehaviorFactory.scale(Vector2(-1,1),travel_duration),true)
 	elif not face_up and target.face_up:
-		add_child(BehaviorFactory.scale(Vector2(1,1),travel_duration))
+		add_child(BehaviorFactory.scale(Vector2(1,1),travel_duration),true)
 	
 	#not using this for anything right now
 	#may need eventually
@@ -147,7 +147,7 @@ func _on_area_2d_mouse_entered() -> void:
 	#isClickable is set if it's the player's cards
 	if isClickable:
 		#slightly increase in scale
-		add_child(BehaviorFactory.scale(Vector2(1.2,1.2),0.2))
+		add_child(BehaviorFactory.scale(Vector2(1.2,1.2),0.2),true)
 		moused_over = true
 
 
@@ -155,7 +155,7 @@ func _on_area_2d_mouse_exited() -> void:
 	#isClickable is set if it's the player's cards
 	if isClickable:
 		#reset scale
-		add_child(BehaviorFactory.scale(Vector2(1,1),0.3))
+		add_child(BehaviorFactory.scale(Vector2(1,1),0.3),true)
 		moused_over = false
 
 #automation hookup
