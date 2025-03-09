@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bf6pmexlsnyg8"]
 
-[ext_resource type="Script" uid="uid://c1emfsvho7rg2" path="res://action_progress.gd" id="1_xvvgv"]
+[ext_resource type="Script" uid="uid://c1emfsvho7rg2" path="res://Debug/action_progress.gd" id="1_xvvgv"]
 
 [node name="ActionProgress" type="ProgressBar" node_paths=PackedStringArray("affected_node_name", "action_name")]
 offset_right = 104.0

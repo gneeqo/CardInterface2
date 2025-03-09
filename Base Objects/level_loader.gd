@@ -45,6 +45,8 @@ func load_scene_at_index(index:int):
 		
 		intro_scene(active_level_root)
 		dispose_scene(prev_level_root)
+		
+		TelemetryCollector.add_event("LevelLoader","Started Loading",active_level_root.name)
 
 func set_menu_done_moving():
 	menu_done_moving = true
@@ -55,6 +57,8 @@ func set_menu_done_moving_and_unpause():
 
 func set_level_done_loading():
 	level_done_loading = true
+	TelemetryCollector.add_event("LevelLoader","Finished Loading",active_level_root.name)
+
 
 
 func load_main_menu():

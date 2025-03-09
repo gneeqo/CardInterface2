@@ -133,7 +133,7 @@ func reset_action():
 	
 #set up debug
 func _begin_action():
-	action_debug = load("res://action_progress.tscn").instantiate()
+	action_debug = load("res://Debug/action_progress.tscn").instantiate()
 	action_debug.set_action_name(name)
 	action_debug.set_affected_node_name(affected_node.name)
 	

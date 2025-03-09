@@ -22,3 +22,6 @@ res://action_progress.tscn
 res://debug_menu.gd
 res://Game Logic/Scripts/referee.gd
 res://Game Logic/Scripts/Card Groups/card_group.gd
+res://Debug/debug_menu.tscn
+res://Debug/action_progress.tscn
+res://Base Objects/level_loader.gd

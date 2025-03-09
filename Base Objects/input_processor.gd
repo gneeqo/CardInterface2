@@ -45,9 +45,9 @@ func _process(_dt:float):
 	if(Input.is_action_just_pressed("toggle_debug")):
 		debug_menu_open = !debug_menu_open
 		if debug_menu_open:
-			TelemetryCollector.add_event("debug menu opened")
+			TelemetryCollector.add_event("InputProcessor","Opened","DebugMenu")
 		else:
-			TelemetryCollector.add_event("debug menu closed")
+			TelemetryCollector.add_event("InputProcessor","Closed","DebugMenu")
 	
 	if automating:
 		#don't do any normal input
@@ -94,12 +94,11 @@ func play_card():
 						var event_message:String
 						if node is Card:
 							var card = node as Card
-							event_message = "automation clicked card " + \
-							str(card.value) + " of " + Card.Suits.keys()[card.suit]
+							event_message = str(card.value) + " of " + Card.Suits.keys()[card.suit]
 						else:
-							event_message = "automation clicked something other than card"
+							event_message = "something other than a card"
 						
-						TelemetryCollector.add_event(event_message)
+						TelemetryCollector.add_event("InputProcessor","Clicked",event_message)
 						
 						break
 					else:
@@ -123,7 +122,7 @@ func take_turn():
 	
 func open_menu():
 	escape_just_pressed = true
-	TelemetryCollector.add_event("Menu Opened")
+	TelemetryCollector.add_event("InputProcessor","Opened","Menu")
 
 func select_menu_option():
 	var rng = RandomNumberGenerator.new()
@@ -144,13 +143,13 @@ func select_menu_option():
 					var event_message:String
 					if node is AutomatedOptionButton:
 						var option = node as AutomatedOptionButton
-						event_message = "automation selected " + \
-						option.get_item_text(option_to_select)
+						event_message = option.get_item_text(option_to_select)
+						
 						
 					else:
-						event_message = "automation somehow selected unselectable item"
+						event_message = "unselectable item (somehow)"
 					
-					TelemetryCollector.add_event(event_message)
+					TelemetryCollector.add_event("InputProcessor","Selected",event_message)
 					
 					
 					
@@ -176,5 +175,5 @@ func close_menu():
 	var callback_play_card = BehaviorFactory.delayed_callback(Callable(self,"play_card"),4)
 	#make sure this is marked as UI space
 	callback_play_card.globalList = 1
-	TelemetryCollector.add_event("Menu Closed")
+	TelemetryCollector.add_event("InputProcessor","Closed","Menu")
 	

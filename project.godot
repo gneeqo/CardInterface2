@@ -12,6 +12,8 @@ config_version=5
 
 config/name="CardInterface2"
 run/main_scene="uid://ciwg32p5fu0jx"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="CardInterface"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

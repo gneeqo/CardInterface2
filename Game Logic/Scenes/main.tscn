@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2awiqacmo8ob" path="res://Game Logic/Scenes/Play Spaces/six_players.tscn" id="6_5ocdf"]
 [ext_resource type="PackedScene" uid="uid://muys6dk2o42v" path="res://Game Logic/Scenes/menu.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://yeff35x84jws" path="res://Game Logic/Scenes/gameover.tscn" id="8_6hafu"]
-[ext_resource type="PackedScene" uid="uid://pmy5107y2im8" path="res://debug_menu.tscn" id="9_5ocdf"]
+[ext_resource type="PackedScene" uid="uid://pmy5107y2im8" path="res://Debug/debug_menu.tscn" id="9_5ocdf"]
 
 [node name="Root" type="Node2D"]
 

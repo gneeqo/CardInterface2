@@ -30,7 +30,7 @@ func prep_for_card():
 func receive_card(payload:Card):
 	payload.in_transit = false
 	_add_card(payload)
-	TelemetryCollector.add_event(name + " received "+\
+	TelemetryCollector.add_event(name,"received",
 	 str(payload.value) + " of " + Card.Suits.keys()[payload.suit])
 	
 	received_card.emit()
