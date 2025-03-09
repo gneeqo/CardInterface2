@@ -20,6 +20,8 @@ static var requrire_level_reload = false
 
 static var card_finished_playing_signal
 
+static var debug_menu_open:bool = false
+
 #manage time scales here, so automation can override
 static var time_scale : float :
 	get:
@@ -36,6 +38,9 @@ func _process(_dt:float):
 		automating = !automating
 		menu_automating = automating
 		
+	if(Input.is_action_just_pressed("toggle_debug")):
+		debug_menu_open = !debug_menu_open
+	
 	if automating:
 		#don't do any normal input
 		mouse_just_pressed = false

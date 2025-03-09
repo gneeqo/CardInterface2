@@ -8,4 +8,5 @@ func add_action_debug(debug :ActionProgress):
 		if container.get_child_count() < containerVMax:
 			container.add_child(debug)
 			break
-	
+func _process(delta: float) -> void:
+	visible = InputProcessor.debug_menu_open
