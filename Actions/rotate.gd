@@ -8,7 +8,6 @@ var initial_angle : float = 0.0
 var final_angle : float 
 		
 
-
 func _begin_action():
 	initial_angle = affected_node.global_rotation
 	
@@ -27,8 +26,6 @@ func _begin_action():
 	
 	if abs(clockwise_distance) > abs(counterclockwise_distance):
 		final_angle = counterclockwise_rot
-	
-	
 	
 	super._begin_action()
 

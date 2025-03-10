@@ -64,8 +64,8 @@ func reposition_cards():
 			
 			
 		
-		var behavior = BehaviorFactory.rotate(newAngle,0.2)
-		var shift = ActionFactory.translate_to(newPos,0.2,true,Action.EaseType.easeInOutSine,0.02)
+		var behavior = BehaviorFactory.rotate(newAngle,0.2,0.02)
+		var shift = ActionFactory.translate_to(newPos,0.2,true,Action.EaseType.easeInOutSine,0.5)
 		BehaviorFactory.add_action_to_behavior(shift,behavior)
 			
 		card.add_child(behavior,true)

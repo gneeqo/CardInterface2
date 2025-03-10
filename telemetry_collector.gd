@@ -9,10 +9,13 @@ static var telemetry_active : bool = false
 
 
 static func add_event(target:String,verb:String,content:String):
-	#get current time
-	var timestamp = Time.get_unix_time_from_system()
-	#add event to list
-	events_recorded.push_back([timestamp,target,verb,content])
+	if not telemetry_active:
+		pass
+	else:
+		#get current time
+		var timestamp = Time.get_unix_time_from_system()
+		#add event to list
+		events_recorded.push_back([timestamp,target,verb,content])
 
 static func start_collecting():	
 	events_recorded.clear()
@@ -31,9 +34,3 @@ static func write_telemetry():
 
 	var file = FileAccess.open("user://telemetry.csv", FileAccess.WRITE)
 	file.store_string(full_content)
-	
-	
-	
-	
-	pass
-	

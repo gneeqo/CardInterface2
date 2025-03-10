@@ -11,6 +11,11 @@ static var hand_size:int = 13
 @export var deal_delay : float = 0.3
 @export var trick : Trick
 
+@export var deck_anchor : Node2D
+
+@export var trick_win_text : RichTextLabel
+@export var game_win_text : RichTextLabel
+
 var starting_player_index = 0
 
 var turn_index : int = -1
@@ -41,18 +46,38 @@ func _process(_dt:float)->void:
 		var loader : LevelLoader = get_node("/root/Root/LevelLoader")
 		if loader.level_done_loading:
 			#don't start before level is done moving onscreen
-			deal_hand_to_players()
+			shuffle_animation()
+			
+			add_child(BehaviorFactory.delayed_callback(Callable(self,"deal_hand_to_players"),3),true)
 			auto_start = false
 
+func shuffle_animation():
+	var distance = 250
+	var rng = RandomNumberGenerator.new()
+	for card in deck.cards_in_group:
+		var original_pos = card.global_position
+		var original_rot = card.global_rotation
+		var shuffle_pos = card.global_position + Vector2(rng.randf_range(-distance,distance),rng.randf_range(-distance,distance))
+		var shuffle_rot = card.global_rotation + rng.randf_range(-1,1)
+		
+		var shuffle_in_out = BehaviorFactory.rotate(shuffle_rot,1,0.1)
+		
+		var translate_out = ActionFactory.translate_to(shuffle_pos,1,true,Action.EaseType.easeInOutSine,1,true)
+		var translate_in = ActionFactory.translate_to(original_pos,1)
+		var rotate_in = ActionFactory.rotate_to(original_rot,1)
+		
+		BehaviorFactory.add_action_to_behavior(translate_out,shuffle_in_out)
+		BehaviorFactory.add_action_to_behavior(translate_in,shuffle_in_out)
+		BehaviorFactory.add_action_to_behavior(rotate_in,shuffle_in_out)
 
-
+		card.add_child(shuffle_in_out)
+		
+		
 
 func restart_trick(winning_card:Card):
 	TelemetryCollector.add_event("Referee","Called",get_stack()[0]["function"])
 	print("restart_trick")
 	var destination_group = winning_card.owning_player.winnings_pile
-	
-	
 	
 	#send winning cards to winner
 	while(!trick.cards_in_group.is_empty()):
@@ -78,8 +103,10 @@ func evaluate_trick(receiving_signal:Signal):
 			connection["signal"].disconnect(connection["callable"])
 	
 	#find winning card
+	var total_value = 0
 	var winning_card:Card = trick.cards_in_group.front()
 	for card in trick.cards_in_group:
+		total_value += card.value
 		if card.value > winning_card.value:
 			winning_card = card
 	
@@ -90,6 +117,28 @@ func evaluate_trick(receiving_signal:Signal):
 	BehaviorFactory.add_action_to_behavior \
 	(ActionFactory.scale_to(Vector2(1,1),0.2,true,Action.EaseType.easeInOutSine,0,true),highlight)
 	
+	#show how many points were won
+	trick_win_text.text = winning_card.owning_player.name + " wins\n"+ str(total_value)+" points"
+	
+	var original_text_pos = trick_win_text.global_position
+	
+	#translate up for 1 second
+	var popup = BehaviorFactory.translate(original_text_pos + Vector2(0,-30),1)
+	
+	#fade in for 1/2 second, blocking
+	BehaviorFactory.add_action_to_behavior(ActionFactory.fade(\
+	1,0.5,true,Action.EaseType.easeInOutSine,true),popup)
+	
+	#fade out for 1/2 second, blocking
+	BehaviorFactory.add_action_to_behavior(ActionFactory.fade(\
+	0,0.5,true,Action.EaseType.easeInOutSine,true),popup)
+	
+	#move back to original position
+	BehaviorFactory.add_action_to_behavior(ActionFactory.translate_to(\
+	original_text_pos,1,true,Action.EaseType.easeInOutSine,true),popup)
+	
+	#add this behavior to the trick win text
+	trick_win_text.add_child(popup)
 	
 	#then restart trick
 	var restart = Callable(self,"restart_trick").bind(winning_card)
@@ -115,7 +164,7 @@ func attempt_play(card:Card, player:CardPlayer)->void:
 		, " played " , str(card.value) + " of " + Card.Suits.keys()[card.suit])
 		
 		turn_index +=1
-		
+		player.nametag.add_child(BehaviorFactory.fade(0,0.2))
 		if turn_index == players.size():
 			#the trick is over.
 			turn_index = -1
@@ -182,7 +231,7 @@ func end_round(receiving_signal:Signal):
 		
 func end_game():
 	print("end_game")
-	var level_loader : LevelLoader = get_node("/root/Root/LevelLoader")
+	
 	TelemetryCollector.add_event("Referee","Called",get_stack()[0]["function"])
 	
 	#calculate winner
@@ -196,18 +245,39 @@ func end_game():
 			max_score = curr_score
 			winning_player = player
 	
+	#show how many points were won
+	game_win_text.text = winning_player.name + " wins the game!\n"+ str(max_score)+" points"
+	
+	#translate up for 1 second
+	var popup = BehaviorFactory.translate(game_win_text.global_position + Vector2(0,-30),1)
+	
+	#fade in for 1/2 second, blocking
+	BehaviorFactory.add_action_to_behavior(ActionFactory.fade(\
+	1,0.5,true,Action.EaseType.easeInOutSine,true),popup)
+	
+	
+	
 	#send winner to telemetry
 	if winning_player != null:
 		TelemetryCollector.add_event(\
 		winning_player.name,"Won","Game (" + str(max_score) + "Points)")
-
 	
+	#get ready to restart
+	add_child(BehaviorFactory.delayed_callback(Callable(self,"restart_game"),2))
+	
+	
+
+func restart_game():
 	if InputProcessor.automating:
 		InputProcessor.menuing_allowed = true
 		InputProcessor.requrire_level_reload = true
 	else:
 		#pull up end screen
+		var level_loader : LevelLoader = get_node("/root/Root/LevelLoader")
 		level_loader.load_game_over()
+
+func move_deck():
+	deck.add_child(BehaviorFactory.translate_then_callback(Callable(self,"start_play"),deck_anchor.global_position,1))
 
 func deal_hand_to_players():
 	TelemetryCollector.add_event("Referee","Called",get_stack()[0]["function"])
@@ -216,7 +286,7 @@ func deal_hand_to_players():
 		return
 	else:
 		var delay_time = deal_delay*players.size()*hand_size + deal_delay*hand_size
-		add_child(BehaviorFactory.delayed_callback(Callable(self,"start_play"),delay_time),true)
+		add_child(BehaviorFactory.delayed_callback(Callable(self,"move_deck"),delay_time),true)
 	
 
 	#do this once for each hand size

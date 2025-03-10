@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ciwg32p5fu0jx"]
+[gd_scene load_steps=20 format=3 uid="uid://ciwg32p5fu0jx"]
 
 [ext_resource type="Script" uid="uid://banc2f1p3qdjs" path="res://Base Objects/input_processor.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://cjnkgonktgaqj" path="res://Base Objects/global_executor_list.gd" id="1_lquwl"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bqb8wrc8jlbv6" path="res://Behaviors/slide_right_out.tscn" id="15_lppnm"]
 [ext_resource type="PackedScene" uid="uid://drs4ygnjbtxx" path="res://Behaviors/fade_out_UI.tscn" id="16_57gqk"]
 [ext_resource type="PackedScene" uid="uid://blgcy6uwfsbpt" path="res://Behaviors/shrink_out_UI.tscn" id="17_rs4dn"]
+[ext_resource type="Texture2D" uid="uid://c51wtlvb4fbqx" path="res://Assets/common_bg.png" id="19_lague"]
 
 [node name="Root" type="Node2D"]
 
@@ -43,3 +44,9 @@ transitions_out = Array[PackedScene]([ExtResource("11_mnogh"), ExtResource("15_l
 metadata/_custom_type_script = "uid://n12cdne363o8"
 
 [node name="DebugMenu" parent="." instance=ExtResource("9_5ocdf")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.603586, 0.596988)
+texture = ExtResource("19_lague")

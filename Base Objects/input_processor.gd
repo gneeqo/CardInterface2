@@ -37,10 +37,11 @@ func _process(_dt:float):
 		#I worry that removing menu_automating will break something else
 		automating = !automating
 		menu_automating = automating
-		if(automating):
-			TelemetryCollector.start_collecting()
-		else:
-			TelemetryCollector.finish_collecting()
+		#commented out for submission build
+		#if(automating):
+			#TelemetryCollector.start_collecting()
+		#else:
+			#TelemetryCollector.finish_collecting()
 		
 	if(Input.is_action_just_pressed("toggle_debug")):
 		debug_menu_open = !debug_menu_open

@@ -29,6 +29,15 @@ static func fade(opacity:float, duration:float , drift:float = 0,blocking:bool =
 	
 	return new_executor
 
+static func translate(location:Vector2, duration:float , drift:float = 0 ,\
+ eased:bool = true, ease_type:Action.EaseType = Action.EaseType.easeInOutSine) -> Executor:
+	var new_executor = ExecAutoActivate.new()
+	new_executor.add_child(ActionFactory.translate_to(location,duration,eased,ease_type,drift,false),true)
+	
+	return new_executor
+
+
+
 static func scale(new_scale:Vector2, duration:float , drift:float = 0,blocking:bool = false ,\
  eased:bool = true, ease_type:Action.EaseType = Action.EaseType.easeInOutSine) -> Executor:
 	var new_executor = ExecAutoActivate.new()

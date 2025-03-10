@@ -6,6 +6,8 @@ class_name CardPlayer extends Node2D
 var winnings_pile : Pile
 var hand : Hand
 
+var nametag : RichTextLabel
+
 var referee : Referee
 
 func _ready():
@@ -18,16 +20,21 @@ func _ready():
 			winnings_pile = child
 		if child is Hand:
 			hand = child
+		if child is RichTextLabel:
+			nametag = child
 
 
 func take_turn():
 	if hand.cards_in_group.size() ==0:
 		print("no cards in hand.")
 		return
+		
+	nametag.add_child(BehaviorFactory.fade(1,0.2))
 	if is_human:
-		take_turn_human()
+		
+		add_child(BehaviorFactory.delayed_callback(Callable(self,"take_turn_human"),1))
 	else:
-		take_turn_AI()
+		add_child(BehaviorFactory.delayed_callback(Callable(self,"take_turn_AI"),1))
 
 #humans take their turn by clicking on cards
 func take_turn_human():

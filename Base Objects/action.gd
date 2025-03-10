@@ -198,3 +198,8 @@ func _clone()->Action:
 	
 	
 	return newAction 
+
+#get rid of debug if action is removed due to reloading
+func _exit_tree ():
+	if is_instance_valid(action_debug):
+		action_debug.queue_free()

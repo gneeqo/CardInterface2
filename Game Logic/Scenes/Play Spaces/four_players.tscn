@@ -9,16 +9,19 @@
 
 [node name="FourPlayers" type="Node2D"]
 
-[node name="referee" type="Node" parent="." node_paths=PackedStringArray("players", "deck", "trick")]
+[node name="referee" type="Node" parent="." node_paths=PackedStringArray("players", "deck", "trick", "deck_anchor", "trick_win_text", "game_win_text")]
 script = ExtResource("1_mp7p4")
 players = [NodePath("../P1"), NodePath("../P2"), NodePath("../P3"), NodePath("../P4")]
 deck = NodePath("../Deck")
 deal_delay = 0.2
 trick = NodePath("../Trick")
+deck_anchor = NodePath("../deck_anchor")
+trick_win_text = NodePath("../TrickWinText")
+game_win_text = NodePath("../GameWinText")
 metadata/_custom_type_script = "uid://duix2ylp10g3r"
 
 [node name="Deck" type="Node2D" parent="."]
-position = Vector2(128, 512)
+position = Vector2(576, 320)
 script = ExtResource("2_is0j2")
 metadata/_custom_type_script = "uid://blir3brgd8gff"
 
@@ -39,6 +42,14 @@ script = ExtResource("5_v2tka")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
+[node name="nametag" type="RichTextLabel" parent="P1"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -40.0
+offset_top = -112.0
+offset_right = 48.0
+offset_bottom = -72.0
+text = "Player 1"
+
 [node name="P2" type="Node2D" parent="."]
 position = Vector2(128, 320)
 rotation = 1.5708
@@ -54,6 +65,15 @@ position = Vector2(-192, -63.9993)
 script = ExtResource("5_v2tka")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
+
+[node name="nametag" type="RichTextLabel" parent="P2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -16.0002
+offset_top = -63.9999
+offset_right = 71.9998
+offset_bottom = -23.9999
+rotation = -1.5708
+text = "Player 2"
 
 [node name="P3" type="Node2D" parent="."]
 position = Vector2(576, 96)
@@ -71,6 +91,15 @@ script = ExtResource("5_v2tka")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
+[node name="nametag" type="RichTextLabel" parent="P3"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 31.3751
+offset_top = -72.2745
+offset_right = 119.375
+offset_bottom = -32.2745
+rotation = 3.14159
+text = "Player 3"
+
 [node name="P4" type="Node2D" parent="."]
 position = Vector2(1056, 320)
 rotation = -1.5708
@@ -87,6 +116,15 @@ position = Vector2(-192, -96.0007)
 script = ExtResource("5_v2tka")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
+
+[node name="nametag" type="RichTextLabel" parent="P4"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 16.0006
+offset_top = -160.0
+offset_right = 104.001
+offset_bottom = -120.0
+rotation = 1.5708
+text = "Player 4"
 
 [node name="Trick" type="Node2D" parent="."]
 position = Vector2(576, 320)
@@ -108,3 +146,26 @@ rotation = -3.14159
 [node name="Anchor4" type="Node2D" parent="Trick"]
 position = Vector2(64, 0)
 rotation = -1.5708
+
+[node name="deck_anchor" type="Node2D" parent="."]
+position = Vector2(64, 512)
+
+[node name="GameWinText" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 240.0
+offset_top = 240.0
+offset_right = 464.0
+offset_bottom = 280.0
+text = "lorem ipsum dolor sit amet"
+fit_content = true
+scroll_active = false
+
+[node name="TrickWinText" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 704.0
+offset_top = 296.0
+offset_right = 832.0
+offset_bottom = 342.0
+text = "lorem ipsum dolor sit amet"
+fit_content = true
+scroll_active = false

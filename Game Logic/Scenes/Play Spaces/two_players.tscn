@@ -9,16 +9,19 @@
 
 [node name="TwoPlayers" type="Node2D"]
 
-[node name="referee" type="Node" parent="." node_paths=PackedStringArray("players", "deck", "trick")]
+[node name="referee" type="Node" parent="." node_paths=PackedStringArray("players", "deck", "trick", "deck_anchor", "trick_win_text", "game_win_text")]
 script = ExtResource("1_eodvt")
 players = [NodePath("../P1"), NodePath("../P2")]
 deck = NodePath("../Deck")
 deal_delay = 0.2
 trick = NodePath("../Trick")
+deck_anchor = NodePath("../deck_anchor")
+trick_win_text = NodePath("../TrickWinText")
+game_win_text = NodePath("../GameWinText")
 metadata/_custom_type_script = "uid://duix2ylp10g3r"
 
 [node name="Deck" type="Node2D" parent="."]
-position = Vector2(128, 512)
+position = Vector2(576, 320)
 script = ExtResource("2_rfg22")
 metadata/_custom_type_script = "uid://blir3brgd8gff"
 
@@ -40,6 +43,14 @@ script = ExtResource("5_ov3kl")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
+[node name="nametag" type="RichTextLabel" parent="P1"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -32.0
+offset_top = -128.0
+offset_right = 56.0
+offset_bottom = -88.0
+text = "Player 1"
+
 [node name="P2" type="Node2D" parent="."]
 position = Vector2(576, 96)
 rotation = 3.14159
@@ -57,6 +68,15 @@ script = ExtResource("5_ov3kl")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
+[node name="nametag2" type="RichTextLabel" parent="P2"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 0.00022316
+offset_top = -96.0
+offset_right = 88.0002
+offset_bottom = -56.0
+rotation = 3.14159
+text = "Player 2"
+
 [node name="Trick" type="Node2D" parent="."]
 position = Vector2(576, 320)
 script = ExtResource("5_rfg22")
@@ -69,3 +89,26 @@ position = Vector2(0, 64)
 [node name="Anchor2" type="Node2D" parent="Trick"]
 position = Vector2(0, -64)
 rotation = 3.14159
+
+[node name="deck_anchor" type="Node2D" parent="."]
+position = Vector2(128, 256)
+
+[node name="GameWinText" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 192.0
+offset_top = 304.0
+offset_right = 416.0
+offset_bottom = 344.0
+text = "lorem ipsum dolor sit amet"
+fit_content = true
+scroll_active = false
+
+[node name="TrickWinText" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 640.0
+offset_top = 296.0
+offset_right = 768.0
+offset_bottom = 342.0
+text = "lorem ipsum dolor sit amet"
+fit_content = true
+scroll_active = false

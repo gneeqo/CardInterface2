@@ -95,3 +95,7 @@ func _on_card_num_self_selected_item(index: int) -> void:
 
 func _on_transition_type_self_selected_item(index: int) -> void:
 	level_loader.curr_transition = index as LevelLoader.TransitionType
+
+
+func _on_transition_type_self_pressed() -> void:
+	pass # Replace with function body.
