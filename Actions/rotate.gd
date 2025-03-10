@@ -17,6 +17,18 @@ func _begin_action():
 		final_angle =  target_angle + rng.randf_range(-drift,drift)
 	else:
 		final_angle = target_angle
+		
+	var clockwise_rot = final_angle 
+	
+	var counterclockwise_rot = (2*PI - abs(final_angle))
+	
+	var clockwise_distance = initial_angle - clockwise_rot
+	var counterclockwise_distance = initial_angle - counterclockwise_rot
+	
+	if abs(clockwise_distance) > abs(counterclockwise_distance):
+		final_angle = counterclockwise_rot
+	
+	
 	
 	super._begin_action()
 

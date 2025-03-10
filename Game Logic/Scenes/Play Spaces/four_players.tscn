@@ -23,7 +23,7 @@ script = ExtResource("2_is0j2")
 metadata/_custom_type_script = "uid://blir3brgd8gff"
 
 [node name="P1" type="Node2D" parent="."]
-position = Vector2(512, 576)
+position = Vector2(576, 544)
 script = ExtResource("3_q56tl")
 is_human = true
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
@@ -34,13 +34,13 @@ face_up = true
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P1Winnings" type="Node2D" parent="P1"]
-position = Vector2(-64, -2.28882e-05)
+position = Vector2(-256, -96)
 script = ExtResource("5_v2tka")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P2" type="Node2D" parent="."]
-position = Vector2(64, 256)
+position = Vector2(128, 320)
 rotation = 1.5708
 script = ExtResource("3_q56tl")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
@@ -50,13 +50,13 @@ script = ExtResource("4_q56tl")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P2Winnings" type="Node2D" parent="P2"]
-position = Vector2(-64, 0)
+position = Vector2(-192, -63.9993)
 script = ExtResource("5_v2tka")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P3" type="Node2D" parent="."]
-position = Vector2(640, 64)
+position = Vector2(576, 96)
 rotation = -3.13293
 script = ExtResource("3_q56tl")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
@@ -66,13 +66,13 @@ script = ExtResource("4_q56tl")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P3Winnings" type="Node2D" parent="P3"]
-position = Vector2(-64, 0)
+position = Vector2(-256.822, -93.7788)
 script = ExtResource("5_v2tka")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P4" type="Node2D" parent="."]
-position = Vector2(1088, 384)
+position = Vector2(1056, 320)
 rotation = -1.5708
 script = ExtResource("3_q56tl")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
@@ -83,7 +83,7 @@ script = ExtResource("4_q56tl")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P4Winnings" type="Node2D" parent="P4"]
-position = Vector2(-64, -0.000142932)
+position = Vector2(-192, -96.0007)
 script = ExtResource("5_v2tka")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"

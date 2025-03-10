@@ -23,7 +23,7 @@ script = ExtResource("2_rfg22")
 metadata/_custom_type_script = "uid://blir3brgd8gff"
 
 [node name="P1" type="Node2D" parent="."]
-position = Vector2(512, 576)
+position = Vector2(576, 544)
 script = ExtResource("1_g3bv0")
 is_human = true
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
@@ -35,13 +35,13 @@ face_up = true
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P1Winnings" type="Node2D" parent="P1"]
-position = Vector2(-64, 0)
+position = Vector2(-192, -96)
 script = ExtResource("5_ov3kl")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"
 
 [node name="P2" type="Node2D" parent="."]
-position = Vector2(640, 64)
+position = Vector2(576, 96)
 rotation = 3.14159
 script = ExtResource("1_g3bv0")
 metadata/_custom_type_script = "uid://y2q4a2aj6rf6"
@@ -52,7 +52,7 @@ script = ExtResource("4_rj8mh")
 metadata/_custom_type_script = "uid://dgq8afktykbss"
 
 [node name="P2Winnings" type="Node2D" parent="P2"]
-position = Vector2(-72, 5.00679e-06)
+position = Vector2(-192, -96.0005)
 script = ExtResource("5_ov3kl")
 face_up = true
 metadata/_custom_type_script = "uid://bouxq6yh6afjh"

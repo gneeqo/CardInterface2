@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://b4lvd7lh6bymw"
 [node name="InitialPositionSet" type="Node" parent="."]
 script = ExtResource("2_bln2f")
 target = Vector2(250, 250)
-duration = 0.001
+duration = 0.1
 blocking = true
 ease_type = 2
 metadata/_custom_type_script = "uid://cj258kueu8ura"

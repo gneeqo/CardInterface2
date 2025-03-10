@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drs4ygnjbtxx"]
+[gd_scene load_steps=5 format=3 uid="uid://drs4ygnjbtxx"]
 
 [ext_resource type="Script" uid="uid://b4lvd7lh6bymw" path="res://Executors/exec_auto_activate.gd" id="1_y6rcx"]
 [ext_resource type="Script" uid="uid://cblnoqqylx6wr" path="res://Actions/fade.gd" id="2_8yi7c"]
+[ext_resource type="Script" uid="uid://bemgi0ogghif3" path="res://Actions/destroy.gd" id="3_8yi7c"]
 [ext_resource type="Script" uid="uid://drluoba4f6b71" path="res://Actions/callback.gd" id="3_jay84"]
 
 [node name="FadeOut" type="Node"]
@@ -15,6 +16,11 @@ duration = 1.0
 blocking = true
 eased = true
 metadata/_custom_type_script = "uid://cblnoqqylx6wr"
+
+[node name="Destroy" type="Node" parent="."]
+script = ExtResource("3_8yi7c")
+duration = 0.1
+metadata/_custom_type_script = "uid://bemgi0ogghif3"
 
 [node name="Callback" type="Node" parent="."]
 script = ExtResource("3_jay84")

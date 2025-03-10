@@ -13,7 +13,6 @@ metadata/_custom_type_script = "uid://b4lvd7lh6bymw"
 [node name="Translate" type="Node" parent="."]
 script = ExtResource("2_lh48h")
 target = Vector2(2000, 100)
-drift = 500.0
 duration = 1.0
 blocking = true
 eased = true
